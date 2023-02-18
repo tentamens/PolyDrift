@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Terrain/assets/greenery/assets/smallTree.glb" type="PackedScene" id=1]
+
+[node name="smallTree" instance=ExtResource( 1 )]
+transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, 0, 0, 0 )
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 3.61853, 0, 0 )

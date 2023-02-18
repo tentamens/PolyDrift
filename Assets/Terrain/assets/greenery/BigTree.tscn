@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Terrain/assets/greenery/assets/BigTree.glb" type="PackedScene" id=1]
+
+[node name="BigTree" instance=ExtResource( 1 )]
+transform = Transform( 13.5732, 0, 0, 0, 13.5732, 0, 0, 0, 13.5732, -34.818, 0, 0 )

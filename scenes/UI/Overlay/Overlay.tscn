@@ -1,0 +1,210 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/UI/Overlay/assets/Speedometer_needle.png" type="Texture" id=1]
+[ext_resource path="res://scenes/UI/Overlay/assets/Speedometer.png" type="Texture" id=2]
+[ext_resource path="res://scenes/UI/Speedomter.gd" type="Script" id=3]
+[ext_resource path="res://scenes/UI/Overlay/Rpmomoter.gd" type="Script" id=4]
+[ext_resource path="res://MISC/CollegiateBlackFLF.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/UI/Overlay/Overlay.gd" type="Script" id=6]
+[ext_resource path="res://scenes/UI/MainScreen/Main.tres" type="Theme" id=7]
+[ext_resource path="res://scenes/UI/Overlay/CurrentTimeTime.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 300
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.995407
+margin_bottom = 2.7558
+rect_scale = Vector2( 1, 0.995407 )
+theme = SubResource( 4 )
+script = ExtResource( 6 )
+
+[node name="Time" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="checkPointTimeLabelGreen" type="Label" parent="Time"]
+modulate = Color( 1, 1, 1, 0.745098 )
+margin_top = 13.0
+margin_bottom = 57.0
+theme = ExtResource( 7 )
+custom_colors/font_color = Color( 0.270588, 1, 0, 1 )
+text = "+"
+
+[node name="checkPointTimeLabelRed" type="Label" parent="Time"]
+modulate = Color( 1, 1, 1, 0.745098 )
+margin_left = 4.0
+margin_top = 13.0
+margin_right = 4.0
+margin_bottom = 57.0
+theme = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Time"]
+margin_left = 8.0
+margin_right = 249.0
+margin_bottom = 71.0
+custom_constants/separation = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Time/VBoxContainer"]
+margin_right = 241.0
+margin_bottom = 34.0
+
+[node name="CurrentTimeLabel" type="Label" parent="Time/VBoxContainer/HBoxContainer"]
+margin_right = 237.0
+margin_bottom = 34.0
+text = "Current Time:"
+
+[node name="CurrentTimeTime" type="Label" parent="Time/VBoxContainer/HBoxContainer"]
+margin_left = 241.0
+margin_right = 241.0
+margin_bottom = 34.0
+script = ExtResource( 8 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Time/VBoxContainer"]
+margin_top = 37.0
+margin_right = 241.0
+margin_bottom = 71.0
+
+[node name="BestTimeLabel" type="Label" parent="Time/VBoxContainer/HBoxContainer2"]
+margin_right = 174.0
+margin_bottom = 34.0
+text = "Best Time:"
+
+[node name="BestTimeTime" type="Label" parent="Time/VBoxContainer/HBoxContainer2"]
+margin_left = 178.0
+margin_right = 178.0
+margin_bottom = 34.0
+
+[node name="gages" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -106.0
+margin_right = -23.0
+margin_bottom = 2.0
+rect_scale = Vector2( 1.75232, 1.75232 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Rpmomoter" type="Sprite" parent="gages"]
+position = Vector2( -178, 0.432373 )
+rotation = -0.00807757
+scale = Vector2( 0.134233, 0.134234 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="kneedle" type="Sprite" parent="gages/Rpmomoter"]
+texture = ExtResource( 1 )
+offset = Vector2( 34.105, 7.316 )
+
+[node name="Speedomter" type="Sprite" parent="gages"]
+position = Vector2( -66, 0.432129 )
+rotation = -0.00807757
+scale = Vector2( 0.134233, 0.134234 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="gages/Speedomter"]
+margin_left = -252.079
+margin_top = -151.034
+margin_right = -44.0791
+margin_bottom = 158.966
+theme = SubResource( 2 )
+text = "3"
+
+[node name="kneedle" type="Sprite" parent="gages/Speedomter"]
+texture = ExtResource( 1 )
+offset = Vector2( 34.105, 7.316 )
+
+[node name="checkPointTImeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="driftCloseCallTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="driftCancleTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="driftCoolDown" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Score" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -21.0
+margin_top = 57.263
+margin_right = 19.0
+margin_bottom = 97.263
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="driftScore" type="Label" parent="Score"]
+margin_left = -65.0104
+margin_top = 28.1331
+margin_right = 50.9896
+margin_bottom = 62.1331
+rect_rotation = 3.38795
+rect_scale = Vector2( 1.29866, 1.29866 )
+custom_colors/font_color = Color( 0, 0.0156863, 1, 1 )
+
+[node name="driftScoreTween" type="Label" parent="Score"]
+margin_left = -65.0104
+margin_top = 28.1331
+margin_right = 50.9896
+margin_bottom = 62.1331
+rect_rotation = 3.38795
+rect_scale = Vector2( 1.29866, 1.29866 )
+custom_colors/font_color = Color( 0, 0.0156863, 1, 1 )
+
+[node name="multiplyer" type="Label" parent="Score"]
+margin_left = 60.0
+margin_top = 19.0877
+margin_right = 100.0
+margin_bottom = 53.0877
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+
+[node name="driftScoreT" type="Label" parent="Score"]
+margin_left = 360.0
+margin_top = -43.1984
+margin_right = 471.0
+margin_bottom = -9.19842
+rect_scale = Vector2( 1.33018, 1.33018 )
+
+[node name="FPS" type="Label" parent="."]
+anchor_left = 0.890625
+anchor_top = 0.212643
+anchor_right = 0.929688
+anchor_bottom = 0.26931
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="timeout" from="checkPointTImeTimer" to="." method="_on_checkPointTImeTimer_timeout"]
+[connection signal="timeout" from="driftCloseCallTimer" to="." method="closeCallTimer"]
+[connection signal="timeout" from="driftCancleTimer" to="." method="driftCancleTimer"]
+[connection signal="timeout" from="driftCoolDown" to="." method="driftCoolDown"]

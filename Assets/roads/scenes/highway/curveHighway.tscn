@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/roads/assets/curveHighway.glb" type="PackedScene" id=1]
+
+[node name="curveHighway" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="2"]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.442, -91.081 )
+polygon = PoolVector2Array( 1.79966, -31.001, -22.3441, -39.1851, -40.7644, -49.4193, -52.6463, -66.389, -57.178, -78.6818, -57.2789, -89.9581, -87.1515, -89.9479, -86.458, -76.5859, -81.6415, -54.0224, -63.7931, -27.3474, -37.1675, -12.8853, -15.9858, -4.69649, 1.05412, -7.91278 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon" parent="StaticBody" index="1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.12881, 14.7816, -83.1487 )
+polygon = PoolVector2Array( -77.8247, -84.07, -77.7427, -68.1174, -72.8418, -49.4997, -50.6291, -13.0214, -28.8594, -5.04356, -9.57069, 0.220482, 6.04034, 1.8543, -9.89782, -2.91055, -29.4823, -9.03748, -52.0059, -25.1482, -67.8733, -46.776, -74.0675, -66.3342, -76.2209, -82.2276 )
+
+[node name="CollisionPolygon3" type="CollisionPolygon" parent="StaticBody" index="2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.0338, 14.7816, -60.9586 )
+polygon = PoolVector2Array( -64.4343, -60.861, -63.0968, -49.0455, -58.7849, -34.4535, -46.1592, -17.1157, -28.4225, -4.04385, -12.9823, 0.418278, -2.29306, 1.32621, -1.67798, -4.70941, -29.4823, -9.03748, -48.8779, -25.5622, -61.0525, -59.1997, -62.5544, -60.6266 )
+
+[node name="CollisionPolygon4" type="CollisionPolygon" parent="StaticBody" index="3"]
+transform = Transform( 1, 0, 0, 0, -5.60547e-07, 12.8238, 0, -1, -4.37114e-08, -7.67481, 20.8686, -83.972 )
+polygon = PoolVector2Array( -77.8247, -84.07, -77.7427, -68.1174, -72.8418, -49.4997, -50.6291, -13.0214, -28.8594, -5.04356, 7.76407, 2.36758, 7.76407, -0.0605698, -8.18756, -2.33867, -28.4345, -8.72655, -51.3961, -25.0895, -67.7242, -47.5436, -73.8626, -67.7518, -76.2216, -84.0639 )
+
+[node name="CollisionPolygon5" type="CollisionPolygon" parent="StaticBody" index="4"]
+transform = Transform( 1, 0, 0, 0, -4.57292e-07, 10.4616, 0, -1, -4.37114e-08, 2.72611, 20.7049, -59.7528 )
+polygon = PoolVector2Array( -63.7646, -58.1374, -62.1965, -48.5049, -58.5959, -33.9344, -46.3266, -17.2189, -28.4225, -4.04385, -12.9823, 0.418278, -3.64815, 1.30899, -1.67798, -4.70941, -29.4823, -9.03748, -48.8779, -25.5622, -61.0525, -59.1997, -64.0701, -59.7802 )

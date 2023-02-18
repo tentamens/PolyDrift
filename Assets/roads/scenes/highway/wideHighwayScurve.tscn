@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/roads/assets/wideHighwayScurve.glb" type="PackedScene" id=1]
+
+[node name="wideHighwayScurve" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="2"]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.504, 0 )
+polygon = PoolVector2Array( -26.2696, 86.2885, -0.716364, 85.3307, -2.72867, 67.5237, -6.19446, 52.8127, -16.2913, 39.0606, -27.0094, 30.6602, -32.6825, 22.6349, -37.8648, 11.4013, -38.3538, -0.206, -63.7357, -0.487042, -62.0334, 16.8786, -56.2675, 35.9549, -29.6167, 65.8404, -27.372, 75.7253 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon" parent="StaticBody" index="1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.756, 0 )
+polygon = PoolVector2Array( -3.05763, 84.5913, -4.58948, 69.3749, -10.9211, 53.6479, -20.4445, 41.2575, -29.9108, 30.3416, -36.8, 21.3047, -41.0117, 10.8674, -42.4745, 0.295284, -40.7384, 0.499531, -38.2867, 9.53434, -30.0155, 22.2518, -6.92893, 50.716, 3.50909, 82.2891, 1.56874, 84.1274 )
+
+[node name="CollisionPolygon3" type="CollisionPolygon" parent="StaticBody" index="2"]
+transform = Transform( 1, 0, 0, 0, -4.10132e-07, 9.38272, 0, -1, -4.37114e-08, 1.25928, 19.7979, 0 )
+polygon = PoolVector2Array( -2.60814, 85.1294, -4.68876, 68.5083, -10.9211, 53.6479, -20.7234, 40.7563, -30.409, 29.1767, -36.8, 21.3047, -41.2014, 10.4046, -42.4745, 0.295284, -40.7384, 0.499531, -38.2867, 9.53434, -30.0155, 22.2518, -6.92893, 50.716, 3.50909, 82.2891, 1.56874, 84.1274 )
+
+[node name="CollisionPolygon4" type="CollisionPolygon" parent="StaticBody" index="3"]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -2.32109e-07, 5.31004, 8.74228e-08, 1, 4.37114e-08, -66.473, 18.122, -84.213 )
+polygon = PoolVector2Array( -2.60814, 85.1294, -4.68876, 68.5083, -10.9211, 53.6479, -20.7234, 40.7563, -30.409, 29.1767, -36.8, 21.3047, -41.2014, 10.4046, -42.4745, 0.295284, -40.7384, 0.499531, -38.2867, 9.53434, -30.0155, 22.2518, -6.92893, 50.716, 3.50909, 82.2891, 1.56874, 84.1274 )

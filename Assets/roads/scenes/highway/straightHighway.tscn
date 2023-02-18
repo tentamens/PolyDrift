@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/roads/assets/wideHighway.glb" type="PackedScene" id=1]
+[ext_resource path="res://MAIN/misc/ground_surface_variables.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 10.7995, 1, 5.67426 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.6705, 1.27799, 5.00059 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.4546, 2.98961, 4.95052 )
+
+[sub_resource type="BoxShape" id=4]
+
+[node name="straightHighway" type="StaticBody"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="wideHighway" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.542, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.002, -5.08775 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7221, 14.0251, -4.97415 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6131, 14.0251, -4.97415 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.692, 15.4056, -4.95506 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6222, 15.4056, -4.95506 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.09982, 0 )
+shape = SubResource( 4 )

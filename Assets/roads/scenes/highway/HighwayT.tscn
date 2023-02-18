@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/roads/assets/Road.material" type="Material" id=1]
+[ext_resource path="res://Assets/roads/assets/HighwayT.glb" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 4.66494, 12.9246 )
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="HighwayT" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="Highway_Join_Highway_1_mesh" parent="." index="0"]
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -16.211, 14.507, 0 )
+polygon = PoolVector2Array( -9.59791, 0.298385, -9.28934, 25.7717, 17.862, 25.3874, 16.9522, -1.21276 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58433, 10.5949, -12.4659 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277246, 18.926, -12.4659 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7545, 15.2409, -0.24382 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7545, 15.2409, -24.7686 )
+shape = SubResource( 2 )

@@ -1,0 +1,8 @@
+Thumbs.db
+.import/*
+addons/kisacel/*
+test/*
+*.import
+default_env.tres
+icon.png
+TestScene.tscn
