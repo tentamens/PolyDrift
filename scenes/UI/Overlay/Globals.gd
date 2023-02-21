@@ -10,7 +10,7 @@ var lastCheckPoints = {}
 
 var gameMode = "checkPoints"
 
-
+var dayTime = "Night"
 
 
 var currentTime = 0

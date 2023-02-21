@@ -1,23 +1,32 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/UI/MainScreen/Main.tres" type="Theme" id=1]
-[ext_resource path="res://scenes/UI/MainScreen/MainUI.gd" type="Script" id=2]
-[ext_resource path="res://scenes/UI/MainScreen/assets/Modern5.mp3" type="AudioStream" id=3]
+[ext_resource path="res://scenes/UI/MainScreen/assets/Modern5.mp3" type="AudioStream" id=2]
+[ext_resource path="res://scenes/UI/UIscenes/gameMode/gameMode.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Terrain/assets/mountainRange/water.tres" type="Material" id=4]
-[ext_resource path="res://Assets/roads/scenes/highway/straightHighway.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Terrain/assets/greenery/Rock.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Terrain/assets/greenery/BigTree.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Terrain/assets/greenery/smallTree.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/roads/scenes/highway/wideHighwayScurve.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/roads/scenes/highway/HighwayT.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/roads/scenes/wideHighwayMountainpassEntrance.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/roads/scenes/highway/curveHighway.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/roads/scenes/highway/HighwayScurveOp.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Terrain/Moutains.tscn" type="PackedScene" id=14]
-[ext_resource path="res://cars/mustang/Mustang.tscn" type="PackedScene" id=15]
-[ext_resource path="res://MISC/buttonStylebox.tres" type="StyleBox" id=16]
+[ext_resource path="res://Assets/roads/scenes/highway/HighwayT.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Terrain/assets/greenery/BigTree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Terrain/assets/greenery/smallTree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/roads/scenes/highway/curveHighway.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/roads/scenes/highway/HighwayScurveOp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Terrain/Moutains.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/roads/scenes/highway/wideHighwayScurve.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/roads/scenes/wideHighwayMountainpassEntrance.tscn" type="PackedScene" id=12]
+[ext_resource path="res://cars/mustang/Mustang.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Terrain/assets/greenery/Rock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/roads/scenes/highway/straightHighway.tscn" type="PackedScene" id=15]
+[ext_resource path="res://MISC/buttonPressed.tres" type="StyleBox" id=16]
 [ext_resource path="res://MISC/buttonHover.tres" type="StyleBox" id=17]
-[ext_resource path="res://MISC/buttonPressed.tres" type="StyleBox" id=18]
+[ext_resource path="res://MISC/buttonStylebox.tres" type="StyleBox" id=18]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+anti_aliasing_size = 2.507
 
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0, 0.486275, 1, 1 )
@@ -39,140 +48,194 @@ scale = 1.54
 scale_random = 1.0
 color = Color( 0.376471, 0.568627, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=6]
 
 [sub_resource type="CapsuleMesh" id=9]
-material = SubResource( 10 )
+material = SubResource( 6 )
 radius = 0.851
 mid_height = 0.001
 radial_segments = 12
 
-[node name="Main" type="Control"]
+[node name="gameMode" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 145.0
-margin_bottom = 145.0
+margin_top = 41.0
+margin_right = -98.0
+margin_bottom = -12.0
 rect_scale = Vector2( 1, 0.6 )
 theme = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 margin_right = 114.0
-margin_bottom = 1400.0
+margin_bottom = 1347.0
 custom_constants/margin_right = 114
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 118.0
-margin_right = 1219.0
-margin_bottom = 1400.0
+margin_right = 1146.0
+margin_bottom = 1347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_right = 1101.0
+margin_right = 1028.0
 margin_bottom = 150.0
 custom_constants/margin_top = 150
 
-[node name="QuickRace" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="bestLap" type="Button" parent="HBoxContainer/VBoxContainer"]
 margin_top = 154.0
-margin_right = 1101.0
-margin_bottom = 670.0
+margin_right = 1028.0
+margin_bottom = 644.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_styles/hover = ExtResource( 17 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/normal = ExtResource( 16 )
-text = "Quick Lap"
+custom_styles/pressed = ExtResource( 16 )
+custom_styles/normal = ExtResource( 18 )
+text = "Best  Lap"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 674.0
-margin_right = 1101.0
-margin_bottom = 725.0
+margin_top = 648.0
+margin_right = 1028.0
+margin_bottom = 699.0
 custom_constants/margin_top = 51
 
-[node name="GameModes" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 729.0
-margin_right = 1101.0
-margin_bottom = 1246.0
+[node name="driftScore" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 703.0
+margin_right = 1028.0
+margin_bottom = 1193.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = ExtResource( 17 )
-custom_styles/pressed = ExtResource( 18 )
-custom_styles/normal = ExtResource( 16 )
-text = "Game Modes"
+custom_styles/pressed = ExtResource( 16 )
+custom_styles/normal = ExtResource( 18 )
+text = "Drift Score"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 1250.0
-margin_right = 1101.0
-margin_bottom = 1400.0
+margin_top = 1197.0
+margin_right = 1028.0
+margin_bottom = 1347.0
 custom_constants/margin_top = 150
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
-margin_left = 1223.0
-margin_right = 1337.0
-margin_bottom = 1400.0
+margin_left = 1150.0
+margin_right = 1264.0
+margin_bottom = 1347.0
 custom_constants/margin_right = 114
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 1341.0
-margin_right = 2442.0
-margin_bottom = 1400.0
+[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 1268.0
+margin_right = 2296.0
+margin_bottom = 1347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 787.0
+margin_bottom = 1347.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 10 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.5
+margin_top = -602.0
+margin_right = 328.5
+margin_bottom = 602.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
+margin_right = 657.0
+margin_bottom = 55.0
+custom_constants/margin_top = 55
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
+margin_top = 59.0
+margin_right = 657.0
+margin_bottom = 103.0
+text = "Day / Night"
+align = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
+margin_top = 107.0
+margin_right = 657.0
+margin_bottom = 244.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 16 )
+custom_styles/normal = ExtResource( 18 )
+text = "Day"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer2/Panel/VBoxContainer"]
+margin_top = 248.0
+margin_right = 657.0
+margin_bottom = 1204.0
+custom_constants/margin_top = 956
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_left = 791.0
+margin_right = 1028.0
+margin_bottom = 1347.0
+custom_constants/margin_right = 237
+
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
-margin_left = 2446.0
-margin_right = 2560.0
-margin_bottom = 1400.0
+margin_left = 2300.0
+margin_right = 2462.0
+margin_bottom = 1347.0
 custom_constants/margin_right = 114
+custom_constants/margin_left = 48
 
 [node name="click" type="AudioStreamPlayer" parent="HBoxContainer"]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 volume_db = 9.6
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.901192, -0.140434, -0.410038, 0.0634747, 0.978616, -0.195659, 0.428747, 0.150299, 0.890835, 231.578, 37.0157, -210.601 )
+transform = Transform( -0.895267, -0.030795, -0.444464, -0.149631, 0.960446, 0.23485, 0.419651, 0.276759, -0.864463, 231.578, 45.9748, -243.491 )
 far = 8192.0
 
 [node name="Roads" type="Spatial" parent="."]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 195.472, -73.22, -130.109 )
 
-[node name="curveHighway" parent="Roads" instance=ExtResource( 12 )]
+[node name="curveHighway" parent="Roads" instance=ExtResource( 8 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 98.212, 78.328, -309.181 )
 
-[node name="curveHighway3" parent="Roads" instance=ExtResource( 12 )]
+[node name="curveHighway3" parent="Roads" instance=ExtResource( 8 )]
 transform = Transform( 6.3573e-08, 0, 2, 0, 2, 0, -2, 0, 6.3573e-08, 100.096, 78.328, 72.8615 )
 
-[node name="curveHighway2" parent="Roads" instance=ExtResource( 12 )]
+[node name="curveHighway2" parent="Roads" instance=ExtResource( 8 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 98.212, 78.328, -309.181 )
 
-[node name="curveHighway4" parent="Roads" instance=ExtResource( 12 )]
+[node name="curveHighway4" parent="Roads" instance=ExtResource( 8 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 439.991, 78.328, 73.4918 )
 
-[node name="curveHighway6" parent="Roads" instance=ExtResource( 12 )]
+[node name="curveHighway6" parent="Roads" instance=ExtResource( 8 )]
 transform = Transform( -0.0176626, 0, 1.99992, 0, 2, 0, -1.99992, 0, -0.0176626, 389.027, 78.306, -216.816 )
 
-[node name="curveHighway5" parent="Roads" instance=ExtResource( 12 )]
+[node name="curveHighway5" parent="Roads" instance=ExtResource( 8 )]
 transform = Transform( -2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 439.991, 78.328, 73.4918 )
 
-[node name="wideHighwayScurve" parent="Roads" instance=ExtResource( 9 )]
+[node name="wideHighwayScurve" parent="Roads" instance=ExtResource( 11 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -21.78, 78.325, -139.233 )
 
-[node name="wideHighwayScurve2" parent="Roads" instance=ExtResource( 9 )]
+[node name="wideHighwayScurve2" parent="Roads" instance=ExtResource( 11 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 270.058, 78.3, 243.49 )
 
-[node name="HighwayScurveOp" parent="Roads" instance=ExtResource( 13 )]
+[node name="HighwayScurveOp" parent="Roads" instance=ExtResource( 9 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -101.742, 78.333, 30.58 )
 
-[node name="HighwayScurveOp2" parent="Roads" instance=ExtResource( 13 )]
+[node name="HighwayScurveOp2" parent="Roads" instance=ExtResource( 9 )]
 transform = Transform( -0.00785405, 0, -1.99998, 0, 2, 0, 1.99998, 0, -0.00785405, 100.14, 78.333, 162.759 )
 
-[node name="Moutains" parent="Roads" instance=ExtResource( 14 )]
+[node name="Moutains" parent="Roads" instance=ExtResource( 10 )]
 transform = Transform( -2.42227, 0, -2.11762e-07, 0, 2.42227, 0, 2.11762e-07, 0, -2.42227, 195.472, 73.22, -129.082 )
 
 [node name="Water" type="Spatial" parent="Roads/Moutains"]
@@ -212,1363 +275,1363 @@ draw_pass_1 = SubResource( 9 )
 
 [node name="Trees" type="CanvasLayer" parent="Roads/Moutains"]
 
-[node name="BigTree" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.34573, 0, 13.5063, 0, 13.5732, 0, -13.5063, 0, -1.34573, 61.1615, 1.04336, -389.426 )
 
-[node name="BigTree3" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree3" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.6344, 0, -8.43449, 0, 13.5732, 0, 8.43449, 0, 10.6344, 58.3503, 1.04336, -460.238 )
 
-[node name="BigTree4" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree4" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.34573, 0, 13.5063, 0, 13.5732, 0, -13.5063, 0, -1.34573, 37.7023, 1.04336, -395.882 )
 
-[node name="BigTree24" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree24" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 6.79009, 0, 11.7527, 0, 13.5732, 0, -11.7527, 0, 6.79009, -174.574, 1.04336, -389.236 )
 
-[node name="BigTree25" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree25" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 3.71258, 0, -13.0556, 0, 13.5732, 0, 13.0556, 0, 3.71258, -135.527, 1.04336, -448.377 )
 
-[node name="BigTree26" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree26" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 6.79009, 0, 11.7527, 0, 13.5732, 0, -11.7527, 0, 6.79009, -189.855, 1.04336, -408.17 )
 
-[node name="BigTree27" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree27" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -2.95327, 0, -13.248, 0, 13.5732, 0, 13.248, 0, -2.95327, -62.0328, 1.04339, -488.928 )
 
-[node name="BigTree28" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree28" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.45675, 0, 11.3415, 0, 13.5732, 0, -11.3415, 0, -7.45675, -81.5471, 1.04339, -420.799 )
 
-[node name="BigTree29" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree29" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -2.95327, 0, -13.248, 0, 13.5732, 0, 13.248, 0, -2.95327, -41.7769, 1.04339, -475.448 )
 
-[node name="BigTree33" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree33" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.50723, 0, 10.5763, 0, 13.5732, 0, -10.5763, 0, -8.50723, -310.098, 1.04336, -424.735 )
 
-[node name="BigTree34" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree34" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.67273, 0, -13.4697, 0, 13.5732, 0, 13.4697, 0, -1.67273, -300.558, -1.01125, -474.092 )
 
-[node name="BigTree35" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree35" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.21976, 0, -9.96132, 0, 13.5732, 0, 9.96132, 0, -9.21976, -258.97, -0.333893, -459.978 )
 
-[node name="BigTree36" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree36" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.735205, 0, 13.5533, 0, 13.5732, 0, -13.5533, 0, -0.735205, -216.685, 1.04336, -398.121 )
 
-[node name="BigTree37" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree37" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.21976, 0, -9.96132, 0, 13.5732, 0, 9.96132, 0, -9.21976, -127.046, 1.04336, -402.044 )
 
-[node name="BigTree38" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree38" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.80832, 0, 12.2676, 0, 13.5732, 0, -12.2676, 0, 5.80832, -328.848, 1.04339, -368.029 )
 
-[node name="BigTree39" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree39" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 4.76564, 0, -12.7091, 0, 13.5732, 0, 12.7091, 0, 4.76564, -214.674, 1.04339, -420.319 )
 
-[node name="BigTree40" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree40" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.80832, 0, 12.2676, 0, 13.5732, 0, -12.2676, 0, 5.80832, -358.678, 1.04339, -381.808 )
 
-[node name="BigTree42" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree42" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.71325, 0, -9.48075, 0, 13.5732, 0, 9.48075, 0, 9.71325, 79.0555, 1.04339, -422.02 )
 
-[node name="BigTree43" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree43" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0466683, 0, 13.5731, 0, 13.5732, 0, -13.5731, 0, 0.0466683, 41.2209, 1.04339, -353.79 )
 
-[node name="BigTree44" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree44" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.5754, 0, -8.50834, 0, 13.5732, 0, 8.50834, 0, 10.5754, 279.462, 1.04336, -438.111 )
 
-[node name="BigTree45" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree45" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.25164, 0, 13.5154, 0, 13.5732, 0, -13.5154, 0, -1.25164, 276.069, -1.01125, -409.049 )
 
-[node name="BigTree46" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree46" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 6.87177, 0, 11.7052, 0, 13.5732, 0, -11.7052, 0, 6.87177, 237.071, -0.333893, -392.734 )
 
-[node name="BigTree47" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree47" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 3.62157, 0, -13.0811, 0, 13.5732, 0, 13.0811, 0, 3.62157, 182.516, 1.04336, -444.096 )
 
-[node name="BigTree48" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree48" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 6.87177, 0, 11.7052, 0, 13.5732, 0, -11.7052, 0, 6.87177, 95.7979, 1.04336, -421.061 )
 
-[node name="BigTree49" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree49" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.04546, 0, -13.2271, 0, 13.5732, 0, 13.2271, 0, -3.04546, 214.961, 1.04339, -482.019 )
 
-[node name="BigTree50" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree50" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.37759, 0, 11.3931, 0, 13.5732, 0, -11.3931, 0, -7.37759, 185.306, 1.04339, -421.983 )
 
-[node name="BigTree51" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree51" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.04546, 0, -13.2271, 0, 13.5732, 0, 13.2271, 0, -3.04546, 244.341, 1.04339, -487.306 )
 
-[node name="BigTree41" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree41" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.80832, 0, 12.2676, 0, 13.5732, 0, -12.2676, 0, 5.80832, -301.541, 1.04339, -346.247 )
 
-[node name="BigTree30" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree30" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5455, 0, -0.867401, 0, 13.5732, 0, 0.867401, 0, -13.5455, -37.3882, 1.04339, -391.796 )
 
-[node name="BigTree31" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree31" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.80518, 0, 10.3296, 0, 13.5732, 0, -10.3296, 0, 8.80518, -108.256, 1.04339, -391.49 )
 
-[node name="BigTree32" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree32" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5455, 0, -0.867401, 0, 13.5732, 0, 0.867401, 0, -13.5455, -44.6693, 1.04339, -368.58 )
 
-[node name="BigTree52" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree52" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5455, 0, -0.867401, 0, 13.5732, 0, 0.867401, 0, -13.5455, -44.6693, 1.04339, -368.58 )
 
-[node name="BigTree53" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree53" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.41153, 0, 13.1375, 0, 13.5732, 0, -13.1375, 0, -3.41153, 80.8033, 1.04339, -347.586 )
 
-[node name="BigTree54" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree54" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.8074, 0, -6.69448, 0, 13.5732, 0, 6.69448, 0, 11.8074, 67.1104, 1.04339, -417.119 )
 
-[node name="BigTree55" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree55" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.41153, 0, 13.1375, 0, 13.5732, 0, -13.1375, 0, -3.41153, 56.6293, 1.04339, -350.349 )
 
-[node name="BigTree56" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree56" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.41153, 0, 13.1375, 0, 13.5732, 0, -13.1375, 0, -3.41153, 56.6293, 1.04339, -350.349 )
 
-[node name="BigTree10" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree10" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, 60.9598, 16.0453, -567.514 )
 
-[node name="BigTree12" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree12" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, -33.0162, 19.7226, -567.514 )
 
-[node name="BigTree13" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree13" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, 3.66054, 13.1572, -567.514 )
 
-[node name="BigTree14" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree14" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, 43.2194, 5.43132, -549.691 )
 
-[node name="BigTree15" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree15" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, -92.3958, 17.6516, -549.691 )
 
-[node name="BigTree16" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree16" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, -65.7292, 30.1687, -583.136 )
 
-[node name="BigTree17" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree17" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, 155.602, 25.4396, -575.32 )
 
-[node name="BigTree18" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree18" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, 92.8635, 10.7884, -562.018 )
 
-[node name="BigTree11" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree11" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.0935735, 0, 13.5729, 0, 13.5732, 0, -13.5729, 0, 0.0935735, 38.3171, 19.7144, -576.42 )
 
-[node name="BigTree5" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree5" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.6344, 0, -8.43449, 0, 13.5732, 0, 8.43449, 0, 10.6344, 34.8911, 1.04336, -466.694 )
 
-[node name="BigTree57" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree57" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.34573, 0, 13.5063, 0, 13.5732, 0, -13.5063, 0, -1.34573, 338.044, 1.04336, -190.499 )
 
-[node name="BigTree58" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree58" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.6344, 0, -8.43449, 0, 13.5732, 0, 8.43449, 0, 10.6344, 335.233, 1.04336, -261.311 )
 
-[node name="BigTree59" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree59" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.71325, 0, -9.48075, 0, 13.5732, 0, 9.48075, 0, 9.71325, 355.938, 1.04339, -223.093 )
 
-[node name="BigTree60" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree60" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.41153, 0, 13.1375, 0, 13.5732, 0, -13.1375, 0, -3.41153, 357.686, 1.04339, -148.659 )
 
-[node name="BigTree61" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree61" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.6344, 0, -8.43449, 0, 13.5732, 0, 8.43449, 0, 10.6344, 311.774, 1.04336, -267.767 )
 
-[node name="BigTree62" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree62" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.35779, 0, 10.6948, 0, 13.5732, 0, -10.6948, 0, -8.35779, 399.467, 1.97839, -130.426 )
 
-[node name="BigTree63" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree63" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.4963, 0, -1.44283, 0, 13.5732, 0, 1.44283, 0, 13.4963, 359.235, 1.97839, -188.767 )
 
-[node name="BigTree64" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree64" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.2771, 0, -2.81948, 0, 13.5732, 0, 2.81948, 0, 13.2771, 397.164, 1.97842, -167.537 )
 
-[node name="BigTree65" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree65" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.90644, 0, 9.27873, 0, 13.5732, 0, -9.27873, 0, -9.90644, 438.434, 1.97842, -105.567 )
 
-[node name="BigTree66" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree66" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.4963, 0, -1.44283, 0, 13.5732, 0, 1.44283, 0, 13.4963, 335.958, 1.97839, -181.681 )
 
-[node name="BigTree67" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree67" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.9582, 0, -13.4312, 0, 13.5732, 0, 13.4312, 0, -1.9582, 451.656, 1.97839, -79.3733 )
 
-[node name="BigTree68" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree68" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.28084, 0, 10.7545, 0, 13.5732, 0, -10.7545, 0, -8.28084, 437.27, 1.97839, -9.98092 )
 
-[node name="BigTree69" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree69" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.13415, 0, 11.5471, 0, 13.5732, 0, -11.5471, 0, -7.13415, 426.415, 1.97842, -52.0699 )
 
-[node name="BigTree70" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree70" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.135499, 0, -13.5725, 0, 13.5732, 0, 13.5725, 0, 0.135499, 442.707, 1.97842, -124.72 )
 
-[node name="BigTree71" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree71" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.28084, 0, 10.7545, 0, 13.5732, 0, -10.7545, 0, -8.28084, 458.474, 1.97839, 1.95304 )
 
-[node name="BigTree72" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree72" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.30305, 0, -11.441, 0, 13.5732, 0, 11.441, 0, -7.30305, 439.691, -1.00579, -45.4571 )
 
-[node name="BigTree73" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree73" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.13171, 0, 13.2069, 0, 13.5732, 0, -13.2069, 0, -3.13171, 398.069, -1.00579, 11.8997 )
 
-[node name="BigTree74" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree74" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.76062, 0, 13.4585, 0, 13.5732, 0, -13.4585, 0, -1.76062, 405.463, -1.00576, -30.9332 )
 
-[node name="BigTree75" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree75" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -5.45226, 0, -12.43, 0, 13.5732, 0, 12.43, 0, -5.45226, 450.162, -1.00576, -90.4765 )
 
-[node name="BigTree76" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree76" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.13171, 0, 13.2069, 0, 13.5732, 0, -13.2069, 0, -3.13171, 412.498, -1.00579, 31.4909 )
 
-[node name="BigTree77" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree77" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.24336, 0, 9.93939, 0, 13.5732, 0, -9.93939, 0, 9.24336, 349.331, -1.00579, -93.0638 )
 
-[node name="BigTree78" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree78" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.703013, 0, -13.555, 0, 13.5732, 0, 13.555, 0, 0.703013, 400.599, -1.00579, -141.991 )
 
-[node name="BigTree79" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree79" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.690968, 0, -13.5556, 0, 13.5732, 0, 13.5556, 0, -0.690968, 385.616, -1.00576, -101.188 )
 
-[node name="BigTree148" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree148" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.67879, -2.89312, 9.0655, -2.11156, 13.2613, 1.97776, -9.27873, 0, -9.90644, 587.264, 26.7959, -105.567 )
 
-[node name="BigTree149" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree149" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.09054, -2.89312, 10.5073, -1.76506, 13.2613, 2.29231, -10.7545, 0, -8.28084, 586.128, 40.3388, -9.98092 )
 
-[node name="BigTree150" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree150" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -5.32697, -2.89312, -12.1444, -1.16215, 13.2613, -2.64945, 12.43, 0, -5.45226, 599.359, 43.1104, -90.4765 )
 
-[node name="BigTree151" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree151" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.03094, -2.89312, 9.71098, 1.97022, 13.2613, 2.11858, -9.93939, 0, 9.24336, 500.845, 18.679, -93.0638 )
 
-[node name="BigTree152" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree152" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.675089, -2.89312, -13.2441, -0.14728, 13.2613, -2.88937, 13.5556, 0, -0.690968, 536.296, 26.413, -101.188 )
 
-[node name="BigTree80" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree80" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.60085, 0, 11.2454, 0, 13.5732, 0, -11.2454, 0, 7.60085, 330.927, -1.00576, -50.6648 )
 
-[node name="BigTree81" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree81" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.703013, 0, -13.555, 0, 13.5732, 0, 13.555, 0, 0.703013, 389.933, -1.00579, -163.859 )
 
-[node name="BigTree170" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree170" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.1288, 0, -7.77051, 0, 13.5732, 0, 7.77051, 0, 11.1288, -325.952, 1.04339, -217.128 )
 
-[node name="BigTree171" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree171" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -5.50752, 0, 12.4056, 0, 13.5732, 0, -12.4056, 0, -5.50752, -312.094, -3.07534, -143.975 )
 
-[node name="BigTree172" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree172" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.98941, 0, 9.18927, 0, 13.5732, 0, -9.18927, 0, -9.98941, -267.899, 1.97839, -132.796 )
 
-[node name="BigTree173" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree173" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5509, 0, 0.776577, 0, 13.5732, 0, -0.776577, 0, 13.5509, -317.103, 1.97839, -183.798 )
 
-[node name="BigTree174" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree174" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5592, 0, -0.617378, 0, 13.5732, 0, 0.617378, 0, 13.5592, -276.221, -2.83789, -169.036 )
 
-[node name="BigTree175" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree175" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.2865, 0, 7.5397, 0, 13.5732, 0, -7.5397, 0, -11.2865, -225.401, 1.97842, -114.622 )
 
-[node name="BigTree176" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree176" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5509, 0, 0.776577, 0, 13.5732, 0, -0.776577, 0, 13.5509, -338.914, 1.97839, -173.013 )
 
-[node name="BigTree177" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree177" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.49943, 0, 11.3132, 0, 13.5732, 0, -11.3132, 0, 7.49943, -311.273, -1.00579, -87.7609 )
 
-[node name="BigTree178" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree178" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 2.90328, 0, -13.259, 0, 13.5732, 0, 13.259, 0, 2.90328, -282.756, -1.00579, -164.228 )
 
-[node name="BigTree179" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree179" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.6991, 0, 4.79202, 0, 13.5732, 0, -4.79202, 0, -12.6991, -169.479, 1.04339, -121.89 )
 
-[node name="BigTree180" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree180" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.39174, 0, -10.6682, 0, 13.5732, 0, 10.6682, 0, 8.39174, -200.917, 9.36769, -189.381 )
 
-[node name="BigTree181" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree181" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.944, 0, -6.4476, 0, 13.5732, 0, 6.4476, 0, 11.944, -246.504, 1.9784, -189.337 )
 
-[node name="BigTree182" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree182" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.9428, 0, -4.08829, 0, 13.5732, 0, 4.08829, 0, -12.9428, -186.259, 1.97839, -152.017 )
 
-[node name="BigTree183" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree183" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.2939, 0, -2.73925, 0, 13.5732, 0, 2.73925, 0, -13.2939, -229.518, 1.97842, -156.261 )
 
-[node name="BigTree184" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree184" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.7952, 0, -4.5295, 0, 13.5732, 0, 4.5295, 0, 12.7952, -292.168, 1.57162, -196.491 )
 
-[node name="BigTree185" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree185" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.9428, 0, -4.08829, 0, 13.5732, 0, 4.08829, 0, -12.9428, -167.775, 1.9784, -167.839 )
 
-[node name="BigTree186" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree186" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -4.48389, 0, -12.8112, 0, 13.5732, 0, 12.8112, 0, -4.48389, -215.55, -11.7561, -243.664 )
 
-[node name="BigTree187" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree187" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -6.07771, 0, 12.1364, 0, 13.5732, 0, -12.1364, 0, -6.07771, -224.367, -1.00579, -162.53 )
 
-[node name="BigTree188" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree188" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.8941, 0, 4.23961, 0, 13.5732, 0, -4.23961, 0, -12.8941, -161.358, 1.04339, -169.044 )
 
-[node name="BigTree189" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree189" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.84425, 0, -10.2962, 0, 13.5732, 0, 10.2962, 0, 8.84425, -195.68, 1.04339, -235.116 )
 
-[node name="BigTree190" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree190" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.2111, 0, -5.92623, 0, 13.5732, 0, 5.92623, 0, 12.2111, -241.222, 1.97839, -233.105 )
 
-[node name="BigTree191" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree191" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.7544, 0, -4.64295, 0, 13.5732, 0, 4.64295, 0, -12.7544, -179.423, 1.97839, -198.419 )
 
-[node name="BigTree192" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree192" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.1633, 0, -3.31031, 0, 13.5732, 0, 3.31031, 0, -13.1633, -222.825, 1.97842, -200.793 )
 
-[node name="BigTree193" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree193" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.9787, 0, -3.97319, 0, 13.5732, 0, 3.97319, 0, 12.9787, -287.152, 7.134, -238.282 )
 
-[node name="BigTree194" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree194" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.7544, 0, -4.64295, 0, 13.5732, 0, 4.64295, 0, -12.7544, -161.639, 1.97839, -215.024 )
 
-[node name="BigTree195" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree195" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.92693, 0, -12.9927, 0, 13.5732, 0, 12.9927, 0, -3.92693, -212.641, -1.00579, -288.717 )
 
-[node name="BigTree196" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree196" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -6.59572, 0, 11.8629, 0, 13.5732, 0, -11.8629, 0, -6.59572, -217.949, -1.00579, -207.278 )
 
-[node name="BigTree197" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree197" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.9024, 0, 4.21417, 0, 13.5732, 0, -4.21417, 0, 12.9024, -379.337, 1.04339, -239.885 )
 
-[node name="BigTree198" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree198" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.2227, 0, 3.06463, 0, 13.5732, 0, -3.06463, 0, -13.2227, -312.567, 1.04339, -206.942 )
 
-[node name="BigTree199" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree199" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.3501, 0, -2.45045, 0, 13.5732, 0, 2.45045, 0, -13.3501, -277.048, -5.92343, -235.517 )
 
-[node name="BigTree200" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree200" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.53259, 0, 11.2912, 0, 13.5732, 0, -11.2912, 0, 7.53259, -347.39, 1.97839, -226.9 )
 
-[node name="BigTree201" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree201" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.65097, 0, 10.4591, 0, 13.5732, 0, -10.4591, 0, 8.65097, -311.002, 1.97842, -250.674 )
 
-[node name="BigTree202" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree202" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.8129, 0, -4.47899, 0, 13.5732, 0, 4.47899, 0, -12.8129, -236.963, 1.97842, -258.529 )
 
-[node name="BigTree203" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree203" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.53259, 0, 11.2912, 0, 13.5732, 0, -11.2912, 0, 7.53259, -351.898, 1.97839, -202.99 )
 
-[node name="BigTree204" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree204" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -4.52457, 0, 12.7968, 0, 13.5732, 0, -12.7968, 0, -4.52457, -267.172, -1.00579, -173.776 )
 
-[node name="BigTree205" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree205" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.3376, 0, -5.65824, 0, 13.5732, 0, 5.65824, 0, 12.3376, -311.093, -1.00579, -242.561 )
 
-[node name="BigTree206" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree206" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.32435, 0, -10.7209, 0, 13.5732, 0, 10.7209, 0, 8.32435, -173.126, 1.04339, -281.203 )
 
-[node name="BigTree207" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree207" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.58147, 0, 13.4808, 0, 13.5732, 0, -13.4808, 0, -1.58147, -181.582, -5.83773, -207.23 )
 
-[node name="BigTree208" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree208" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -6.8155, 0, 11.738, 0, 13.5732, 0, -11.738, 0, -6.8155, -142.689, -6.74042, -183.45 )
 
-[node name="BigTree209" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree209" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.1718, 0, -3.27631, 0, 13.5732, 0, 3.27631, 0, 13.1718, -174.558, 1.97839, -246.748 )
 
-[node name="BigTree210" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree210" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.7663, 0, -4.61002, 0, 13.5732, 0, 4.61002, 0, 12.7663, -139.891, 1.97842, -220.528 )
 
-[node name="BigTree211" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree211" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.54338, 0, 10.5472, 0, 13.5732, 0, -10.5472, 0, -8.54338, -107.49, 1.97842, -153.493 )
 
-[node name="BigTree212" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree212" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.1718, 0, -3.27631, 0, 13.5732, 0, 3.27631, 0, 13.1718, -198.586, 1.97839, -242.915 )
 
-[node name="BigTree213" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree213" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.5167, 0, 8.58085, 0, 13.5732, 0, -8.58085, 0, 10.5167, -197.466, -1.00579, -153.301 )
 
-[node name="BigTree233" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree233" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.39174, 0, -10.6682, 0, 13.5732, 0, 10.6682, 0, 8.39174, 70.3481, 33.8446, -189.381 )
 
-[node name="BigTree234" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree234" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.944, 0, -6.4476, 0, 13.5732, 0, 6.4476, 0, 11.944, 24.7617, 19.767, -189.337 )
 
-[node name="BigTree235" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree235" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.9428, 0, -4.08829, 0, 13.5732, 0, 4.08829, 0, -12.9428, 103.491, 24.6459, -167.839 )
 
-[node name="BigTree236" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree236" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.8941, 0, 4.23961, 0, 13.5732, 0, -4.23961, 0, -12.8941, 109.907, 26.8342, -169.044 )
 
-[node name="BigTree237" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree237" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.7544, 0, -4.64295, 0, 13.5732, 0, 4.64295, 0, -12.7544, 91.8422, 18.1205, -198.419 )
 
-[node name="BigTree238" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree238" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.5167, 0, 8.58085, 0, 13.5732, 0, -8.58085, 0, 10.5167, 73.7995, 31.5852, -156.174 )
 
-[node name="BigTree239" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree239" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.0948, 0, -6.16022, 0, 13.5732, 0, 6.16022, 0, 12.0948, 64.9968, 33.8446, -140.711 )
 
-[node name="BigTree240" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree240" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5473, 0, -0.838313, 0, 13.5732, 0, 0.838313, 0, 13.5473, 23.6397, 19.767, -121.535 )
 
-[node name="BigTree241" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree241" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.0312, 0, -9.14366, 0, 13.5732, 0, 9.14366, 0, -10.0312, 104.121, 24.6459, -135.07 )
 
-[node name="BigTree242" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree242" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4827, 0, -1.56454, 0, 13.5732, 0, 1.56454, 0, -13.4827, 109.439, 26.8342, -138.858 )
 
-[node name="BigTree243" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree243" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.6273, 0, -9.56798, 0, 13.5732, 0, 9.56798, 0, -9.6273, 80.7119, 18.1205, -157.936 )
 
-[node name="BigTree244" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree244" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.94327, 0, 12.2028, 0, 13.5732, 0, -12.2028, 0, 5.94327, 82.0689, 31.5852, -112.019 )
 
-[node name="BigTree245" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree245" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.0948, 0, -6.16022, 0, 13.5732, 0, 6.16022, 0, 12.0948, 64.9968, 33.8446, -99.8431 )
 
-[node name="BigTree246" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree246" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5473, 0, -0.838313, 0, 13.5732, 0, 0.838313, 0, 13.5473, 23.6397, 19.767, -80.6673 )
 
-[node name="BigTree247" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree247" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.0312, 0, -9.14366, 0, 13.5732, 0, 9.14366, 0, -10.0312, 104.121, 24.6459, -94.2025 )
 
-[node name="BigTree248" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree248" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4827, 0, -1.56454, 0, 13.5732, 0, 1.56454, 0, -13.4827, 109.439, 26.8342, -97.9902 )
 
-[node name="BigTree249" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree249" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.6273, 0, -9.56798, 0, 13.5732, 0, 9.56798, 0, -9.6273, 80.7119, 18.1205, -117.068 )
 
-[node name="BigTree263" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree263" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.6273, 0, -9.56798, 0, 13.5732, 0, 9.56798, 0, -9.6273, 57.1121, 9.92821, -117.068 )
 
-[node name="BigTree264" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree264" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.1124, 0, 7.794, 0, 13.5732, 0, -7.794, 0, -11.1124, 57.1121, 9.92821, -144.93 )
 
-[node name="BigTree265" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree265" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.7588, -0.92484, 8.22337, -0.734782, 13.5417, 0.561623, -8.24253, 0, -10.7839, 46.8768, 7.42113, -103.733 )
 
-[node name="BigTree250" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree250" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.94327, 0, 12.2028, 0, 13.5732, 0, -12.2028, 0, 5.94327, 82.0689, 31.5852, -71.1518 )
 
-[node name="BigTree251" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree251" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -5.43447, 0, -12.4378, 0, 13.5732, 0, 12.4378, 0, -5.43447, 72.171, 23.1578, -26.0185 )
 
-[node name="BigTree252" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree252" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.0360042, 0, -13.5731, 0, 13.5732, 0, 13.5731, 0, -0.0360042, 50.8554, 17.1076, -66.1698 )
 
-[node name="BigTree253" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree253" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.72066, 0, 9.47311, 0, 13.5732, 0, -9.47311, 0, -9.72066, 69.1246, 19.1914, 13.3709 )
 
-[node name="BigTree254" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree254" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -2.35883, 0, 13.3667, 0, 13.5732, 0, -13.3667, 0, -2.35883, 72.9486, 23.4198, 18.4551 )
 
-[node name="BigTree255" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree255" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.1204, 0, 9.04486, 0, 13.5732, 0, -9.04486, 0, -10.1204, 90.5665, 18.1205, -11.3492 )
 
-[node name="BigTree256" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree256" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.5328, 0, -5.21151, 0, 13.5732, 0, 5.21151, 0, 12.5328, 44.5391, 25.8798, -7.28024 )
 
-[node name="BigTree257" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree257" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.70553, 0, -13.0576, 0, 13.5732, 0, 13.0576, 0, -3.70553, 71.8357, 23.1578, 32.9083 )
 
-[node name="BigTree258" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree258" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 1.79679, 0, -13.4537, 0, 13.5732, 0, 13.4537, 0, 1.79679, 45.0256, 17.1076, -3.96098 )
 
-[node name="BigTree259" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree259" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.9106, 0, 8.07403, 0, 13.5732, 0, -8.07403, 0, -10.9106, 73.866, 19.1914, 72.385 )
 
-[node name="BigTree260" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree260" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -4.14182, 0, 12.9258, 0, 13.5732, 0, -12.9258, 0, -4.14182, 78.6104, 23.4198, 76.8698 )
 
-[node name="BigTree261" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree261" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.2488, 0, 7.59573, 0, 13.5732, 0, -7.59573, 0, -11.2488, 91.7743, 18.1205, 44.9965 )
 
-[node name="BigTree262" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree262" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.1217, 0, -3.47179, 0, 13.5732, 0, 3.47179, 0, 13.1217, 46.9866, 25.8798, 55.2055 )
 
-[node name="BigTree266" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree266" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.43446, 0, 12.4378, 0, 13.5732, 0, -12.4378, 0, 5.43446, 92.6994, 23.1578, 36.7185 )
 
-[node name="BigTree267" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree267" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.036003, 0, 13.5731, 0, 13.5732, 0, -13.5731, 0, 0.036003, 114.015, 17.1076, 76.8698 )
 
-[node name="BigTree268" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree268" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.72066, 0, -9.47311, 0, 13.5732, 0, 9.47311, 0, 9.72066, 95.7459, 19.1914, -2.67089 )
 
-[node name="BigTree269" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree269" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 2.35883, 0, -13.3667, 0, 13.5732, 0, 13.3667, 0, 2.35883, 91.9219, 23.4198, -7.7551 )
 
-[node name="BigTree270" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree270" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.1204, 0, -9.04486, 0, 13.5732, 0, 9.04486, 0, 10.1204, 74.3039, 18.1205, 22.0492 )
 
-[node name="BigTree271" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree271" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.5328, 0, 5.21151, 0, 13.5732, 0, -5.21151, 0, -12.5328, 120.331, 25.8798, 17.9803 )
 
-[node name="BigTree272" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree272" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 3.70552, 0, 13.0576, 0, 13.5732, 0, -13.0576, 0, 3.70552, 93.0347, 23.1578, -22.2083 )
 
-[node name="BigTree273" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree273" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.79679, 0, 13.4537, 0, 13.5732, 0, -13.4537, 0, -1.79679, 119.845, 17.1076, 14.661 )
 
-[node name="BigTree274" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree274" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.9106, 0, -8.07403, 0, 13.5732, 0, 8.07403, 0, 10.9106, 91.0044, 19.1914, -61.685 )
 
-[node name="BigTree275" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree275" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 4.14182, 0, -12.9258, 0, 13.5732, 0, 12.9258, 0, 4.14182, 86.2601, 23.4198, -66.1698 )
 
-[node name="BigTree276" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree276" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.2488, 0, -7.59573, 0, 13.5732, 0, 7.59573, 0, 11.2488, 73.0961, 18.1205, -34.2964 )
 
-[node name="BigTree277" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree277" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.1217, 0, 3.47178, 0, 13.5732, 0, -3.47178, 0, -13.1217, 117.884, 25.8798, -44.5055 )
 
-[node name="BigTree214" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree214" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.15869, 0, -13.5236, 0, 13.5732, 0, 13.5236, 0, -1.15869, -147.558, -1.00579, -217.874 )
 
-[node name="BigTree215" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree215" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.628, 0, -7.00148, 0, 13.5732, 0, 7.00148, 0, 11.628, -183.62, 1.04339, -175.176 )
 
-[node name="BigTree216" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree216" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -6.33246, 0, 12.0055, 0, 13.5732, 0, -12.0055, 0, -6.33246, -164.855, 1.04339, -103.125 )
 
-[node name="BigTree217" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree217" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.587, 0, 8.49392, 0, 13.5732, 0, -8.49392, 0, -10.587, -120.007, 1.97839, -94.9552 )
 
-[node name="BigTree218" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree218" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.4676, 0, 1.68963, 0, 13.5732, 0, -1.68963, 0, 13.4676, -172.542, 1.97839, -142.519 )
 
-[node name="BigTree219" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree219" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5699, 0, 0.299413, 0, 13.5732, 0, -0.299413, 0, 13.5699, -130.756, 1.97842, -130.55 )
 
-[node name="BigTree220" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree220" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.7698, 0, 6.76055, 0, 13.5732, 0, -6.76055, 0, -11.7698, -76.3784, 1.97842, -79.692 )
 
-[node name="BigTree221" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree221" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.4676, 0, 1.68963, 0, 13.5732, 0, -1.68963, 0, 13.4676, -193.574, 1.97839, -130.286 )
 
-[node name="BigTree222" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree222" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 6.71856, 0, 11.7937, 0, 13.5732, 0, -11.7937, 0, 6.71856, -160.242, -1.00579, -47.0944 )
 
-[node name="BigTree223" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree223" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 3.79178, 0, -13.0328, 0, 13.5732, 0, 13.0328, 0, 3.79178, -136.951, -1.00579, -125.312 )
 
-[node name="BigTree224" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree224" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5679, 0, 0.37993, 0, 13.5732, 0, -0.37993, 0, 13.5679, -290.669, 1.04339, -302.435 )
 
-[node name="BigTree225" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree225" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.8097, 0, 6.69058, 0, 13.5732, 0, -6.69058, 0, -11.8097, -235.991, 1.04339, -251.9 )
 
-[node name="BigTree226" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree226" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4968, 0, 1.43833, 0, 13.5732, 0, -1.43833, 0, -13.4968, -193.824, 1.97839, -269.223 )
 
-[node name="BigTree227" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree227" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.4268, 0, 8.68976, 0, 13.5732, 0, -8.68976, 0, 10.4268, -263.72, 1.97839, -280.919 )
 
-[node name="BigTree228" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree228" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.2632, 0, 7.57452, 0, 13.5732, 0, -7.57452, 0, 11.2632, -222.082, 1.97842, -293.391 )
 
-[node name="BigTree229" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree229" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5572, 0, -0.659255, 0, 13.5732, 0, 0.659255, 0, -13.5572, -148.857, 1.97842, -279.915 )
 
-[node name="BigTree230" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree230" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.4268, 0, 8.68976, 0, 13.5732, 0, -8.68976, 0, 10.4268, -274.827, 1.97839, -259.27 )
 
-[node name="BigTree231" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree231" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.70753, 0, 13.5547, 0, 13.5732, 0, -13.5547, 0, -0.70753, -201.873, -8.80317, -207.217 )
 
-[node name="BigTree232" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree232" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.225, 0, -8.92643, 0, 13.5732, 0, 8.92643, 0, 10.225, -224.471, -1.00579, -285.637 )
 
-[node name="BigTree278" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree278" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.3395, 0, -7.45973, 0, 13.5732, 0, 7.45973, 0, 11.3395, 246.888, 1.04339, -9.05504 )
 
-[node name="BigTree279" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree279" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.3715, 0, -2.33105, 0, 13.5732, 0, 2.33105, 0, 13.3715, 203.664, 1.9784, 5.43045 )
 
-[node name="BigTree280" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree280" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.9807, 0, -7.97848, 0, 13.5732, 0, 7.97848, 0, -10.9807, 285.149, 1.9784, 0.876869 )
 
-[node name="BigTree281" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree281" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5731, 0, -0.0641994, 0, 13.5732, 0, 0.0641994, 0, -13.5731, 290.853, 1.04339, -2.29973 )
 
-[node name="BigTree282" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree282" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.6508, 0, -6.9635, 0, 13.5732, 0, 6.9635, 0, 11.6508, 237.365, 1.04339, -54.093 )
 
-[node name="BigTree283" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree283" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.4596, 0, -1.75192, 0, 13.5732, 0, 1.75192, 0, 13.4596, 194.806, 1.97839, -37.7559 )
 
-[node name="BigTree284" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree284" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.6262, 0, -8.44485, 0, 13.5732, 0, 8.44485, 0, -10.6262, 264.411, 1.97839, -24.437 )
 
-[node name="BigTree285" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree285" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.6262, 0, -8.44485, 0, 13.5732, 0, 8.44485, 0, -10.6262, 276.019, 1.97839, -45.8212 )
 
-[node name="BigTree286" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree286" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.392015, 0, -13.5675, 0, 13.5732, 0, 13.5675, 0, 0.392015, 204.295, -1.00579, -99.5579 )
 
-[node name="BigTree287" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree287" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.0145, 0, 9.16188, 0, 13.5732, 0, -9.16188, 0, -10.0145, 225.063, -1.00579, -20.6329 )
 
-[node name="BigTree288" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree288" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -5.77126, 0, 12.2852, 0, 13.5732, 0, -12.2852, 0, -5.77126, 259.573, 1.04339, -32.1109 )
 
-[node name="BigTree289" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree289" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -4.96577, 0, 12.6322, 0, 13.5732, 0, -12.6322, 0, -4.96577, 240.331, -1.00579, -25.6689 )
 
-[node name="BigTree290" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree290" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.5264, 0, -5.22684, 0, 13.5732, 0, 5.22684, 0, 12.5264, 194.05, -1.00579, -92.8889 )
 
-[node name="BigTree291" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree291" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.6115, 0, 5.01822, 0, 13.5732, 0, -5.01822, 0, -12.6115, 205.416, 1.04339, 11.1196 )
 
-[node name="BigTree292" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree292" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5668, 0, -0.414983, 0, 13.5732, 0, 0.414983, 0, -13.5668, 244.828, 1.9784, -11.7896 )
 
-[node name="BigTree293" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree293" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.14491, 0, 10.03, 0, 13.5732, 0, -10.03, 0, 9.14491, 165.938, 1.9784, 9.11224 )
 
-[node name="BigTree294" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree294" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.2809, 0, 2.80163, 0, 13.5732, 0, -2.80163, 0, 13.2809, 160.993, 1.04339, 13.3744 )
 
-[node name="BigTree295" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree295" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.8163, 0, 4.46938, 0, 13.5732, 0, -4.46938, 0, -12.8163, 223.831, 1.04339, 53.3096 )
 
-[node name="BigTree296" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree296" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5363, 0, -0.999986, 0, 13.5732, 0, 0.999986, 0, -13.5363, 262.218, 1.97839, 28.7212 )
 
-[node name="BigTree297" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree297" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.70361, 0, 10.4153, 0, 13.5732, 0, -10.4153, 0, 8.70361, 191.357, 1.97839, 29.721 )
 
-[node name="BigTree298" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree298" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.70361, 0, 10.4153, 0, 13.5732, 0, -10.4153, 0, 8.70361, 184.303, 1.97839, 53.0075 )
 
-[node name="BigTree299" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree299" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.12159, 0, 13.2093, 0, 13.5732, 0, -13.2093, 0, -3.12159, 265.394, -1.00579, 91.1666 )
 
-[node name="BigTree300" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree300" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.6572, 0, -6.95271, 0, 13.5732, 0, 6.95271, 0, 11.6572, 229.128, -1.00579, 18.0556 )
 
-[node name="BigTree301" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree301" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.13144, 0, -10.8679, 0, 13.5732, 0, 10.8679, 0, 8.13144, 197.645, 1.04339, 36.2607 )
 
-[node name="BigTree302" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree302" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.41254, 0, -11.3704, 0, 13.5732, 0, 11.3704, 0, 7.41254, 215.191, -1.00579, 26.0686 )
 
-[node name="BigTree303" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree303" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.3234, 0, 2.59176, 0, 13.5732, 0, -2.59176, 0, -13.3234, 274.083, -1.00579, 82.5675 )
 
-[node name="BigTree304" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree304" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5503, 0, 0.789374, 0, 13.5732, 0, -0.789374, 0, -13.5503, 182.703, 1.04339, 89.6865 )
 
-[node name="BigTree305" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree305" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.7452, 0, -4.66812, 0, 13.5732, 0, 4.66812, 0, -12.7452, 212.89, 1.9784, 55.5272 )
 
-[node name="BigTree306" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree306" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.51921, 0, 12.4004, 0, 13.5732, 0, -12.4004, 0, 5.51921, 144.603, 1.9784, 100.219 )
 
-[node name="BigTree307" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree307" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.7219, 0, 6.84315, 0, 13.5732, 0, -6.84315, 0, 11.7219, 141.252, 1.04339, 105.822 )
 
-[node name="BigTree308" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree308" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.5717, 0, 0.203965, 0, 13.5732, 0, -0.203965, 0, -13.5717, 213.472, 1.04339, 123.926 )
 
-[node name="BigTree309" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree309" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.5319, 0, -5.21371, 0, 13.5732, 0, 5.21371, 0, -12.5319, 242.157, 1.97839, 88.4961 )
 
-[node name="BigTree310" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree310" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 4.97901, 0, 12.627, 0, 13.5732, 0, -12.627, 0, 4.97901, 175.22, 1.97839, 111.77 )
 
-[node name="BigTree311" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree311" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 4.97901, 0, 12.627, 0, 13.5732, 0, -12.627, 0, 4.97901, 175.862, 1.97839, 136.093 )
 
-[node name="BigTree312" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree312" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.12426, 0, 11.5532, 0, 13.5732, 0, -11.5532, 0, -7.12426, 264.846, -1.00579, 146.761 )
 
-[node name="BigTree313" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree313" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.254, 0, -2.92599, 0, 13.5732, 0, 2.92599, 0, 13.254, 207.392, -1.00579, 88.7987 )
 
-[node name="BigTree314" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree314" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 11.1413, 0, -7.75265, 0, 13.5732, 0, 7.75265, 0, 11.1413, 183.248, 1.04339, 115.996 )
 
-[node name="BigTree315" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree315" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.6173, 0, -8.45599, 0, 13.5732, 0, 8.45599, 0, 10.6173, 196.689, -1.00579, 100.795 )
 
-[node name="BigTree316" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree316" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4615, 0, -1.73781, 0, 13.5732, 0, 1.73781, 0, -13.4615, 270.383, -1.00579, 135.862 )
 
-[node name="BigTree317" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree317" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.69687, 0, 9.49754, 0, 13.5732, 0, -9.49754, 0, -9.69687, 173.562, 1.04339, 145.616 )
 
-[node name="BigTree318" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree318" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.6755, 0, 4.85423, 0, 13.5732, 0, -4.85423, 0, -12.6755, 218.763, 1.9784, 139.697 )
 
-[node name="BigTree319" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree319" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.3079, 0, 5.72251, 0, 13.5732, 0, -5.72251, 0, 12.3079, 137.919, 1.9784, 128.525 )
 
-[node name="BigTree320" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree320" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.333, 0, -2.5422, 0, 13.5732, 0, 2.5422, 0, 13.333, 131.712, 1.04339, 130.548 )
 
-[node name="BigTree321" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree321" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.0976, 0, 9.07028, 0, 13.5732, 0, -9.07028, 0, -10.0976, 174.264, 1.04339, 191.645 )
 
-[node name="BigTree322" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree322" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.8731, 0, 4.30278, 0, 13.5732, 0, -4.30278, 0, -12.8731, 219.167, 1.97839, 183.78 )
 
-[node name="BigTree323" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree323" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.0495, 0, 6.24825, 0, 13.5732, 0, -6.24825, 0, 12.0495, 153.412, 1.97839, 157.349 )
 
-[node name="BigTree324" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree324" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.0495, 0, 6.24825, 0, 13.5732, 0, -6.24825, 0, 12.0495, 137.917, 1.97839, 176.108 )
 
-[node name="BigTree325" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree325" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 2.21942, 0, 13.3905, 0, 13.5732, 0, -13.3905, 0, 2.21942, 197.992, -1.00579, 242.612 )
 
-[node name="BigTree326" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree326" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.06981, 0, -10.9137, 0, 13.5732, 0, 10.9137, 0, 8.06981, 192.759, -1.00579, 161.168 )
 
-[node name="BigTree327" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree327" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 3.30595, 0, -13.1645, 0, 13.5732, 0, 13.1645, 0, 3.30595, 156.688, 1.04339, 165.809 )
 
-[node name="BigTree328" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree328" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 2.44882, 0, -13.3504, 0, 13.5732, 0, 13.3504, 0, 2.44882, 176.809, -1.00579, 163.18 )
 
-[node name="BigTree329" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree329" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.2903, 0, 7.53397, 0, 13.5732, 0, -7.53397, 0, -11.2903, 209.327, -1.00579, 238.033 )
 
-[node name="BigTree330" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree330" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.3253, 0, -7.48129, 0, 13.5732, 0, 7.48129, 0, -11.3253, 230.811, 13.7281, 321.663 )
 
-[node name="BigTree331" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree331" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.41273, 0, -11.3702, 0, 13.5732, 0, 11.3702, 0, -7.41273, 234.535, 1.9784, 276.228 )
 
-[node name="BigTree332" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree332" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.00456, 0, 13.2365, 0, 13.5732, 0, -13.2365, 0, -3.00456, 206.603, 5.70512, 352.911 )
 
-[node name="BigTree333" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree333" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.29082, 0, 12.4996, 0, 13.5732, 0, -12.4996, 0, 5.29082, 207.274, 1.04339, 359.405 )
 
-[node name="BigTree334" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree334" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.992, 0, -7.96299, 0, 13.5732, 0, 7.96299, 0, -10.992, 275.957, 16.3493, 330.662 )
 
-[node name="BigTree335" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree335" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -6.91522, 0, -11.6795, 0, 13.5732, 0, 11.6795, 0, -6.91522, 277.717, 1.97839, 285.109 )
 
-[node name="BigTree336" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree336" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.57289, 0, 13.0945, 0, 13.5732, 0, -13.0945, 0, -3.57289, 238.041, 1.97839, 343.83 )
 
-[node name="BigTree337" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree337" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.57289, 0, 13.0945, 0, 13.5732, 0, -13.0945, 0, -3.57289, 253.119, 8.4601, 362.926 )
 
-[node name="BigTree338" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree338" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -12.6237, 0, 4.98736, 0, 13.5732, 0, -4.98736, 0, -12.6237, 330.776, -1.00579, 318.189 )
 
-[node name="BigTree339" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree339" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.3674, 0, 5.59266, 0, 13.5732, 0, -5.59266, 0, 12.3674, 250.054, -1.00579, 306.168 )
 
-[node name="BigTree340" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree340" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5654, 0, 0.461855, 0, 13.5732, 0, -0.461855, 0, 13.5654, 247.001, 15.6396, 342.408 )
 
-[node name="BigTree341" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree341" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5668, 0, -0.415211, 0, 13.5732, 0, 0.415211, 0, 13.5668, 243.264, 6.04312, 322.184 )
 
-[node name="BigTree342" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree342" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.741, 0, -9.45219, 0, 13.5732, 0, 9.45219, 0, -9.741, 328.685, 7.87294, 306.145 )
 
-[node name="BigTree82" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree82" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.82016, 0, 9.36993, 0, 13.5732, 0, -9.36993, 0, 9.82016, 384.746, 1.04336, 62.6941 )
 
-[node name="BigTree83" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree83" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.107333, 0, -13.5728, 0, 13.5732, 0, 13.5728, 0, -0.107333, 438.843, 1.04336, 16.9147 )
 
-[node name="BigTree84" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree84" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.49887, 0, -13.4902, 0, 13.5732, 0, 13.4902, 0, -1.49887, 421.45, 1.04339, 56.7497 )
 
-[node name="BigTree85" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree85" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.25854, 0, 10.7717, 0, 13.5732, 0, -10.7717, 0, 8.25854, 363.844, 1.04339, 103.919 )
 
-[node name="BigTree86" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree86" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.107333, 0, -13.5728, 0, 13.5732, 0, 13.5728, 0, -0.107333, 429.501, 1.04336, -5.55159 )
 
-[node name="BigTree87" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree87" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 3.28985, 0, 13.1684, 0, 13.5732, 0, -13.1684, 0, 3.28985, 375.172, 1.97839, 148.075 )
 
-[node name="BigTree88" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree88" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.16533, 0, -11.5278, 0, 13.5732, 0, 11.5278, 0, 7.16533, 396.416, 1.97839, 80.4665 )
 
-[node name="BigTree89" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree89" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.9452, 0, -12.2019, 0, 13.5732, 0, 12.2019, 0, 5.9452, 403.014, 1.97842, 123.429 )
 
-[node name="BigTree90" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree90" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 1.22075, 0, 13.5182, 0, 13.5732, 0, -13.5182, 0, 1.22075, 379.547, 1.97842, 194.089 )
 
-[node name="BigTree91" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree91" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 7.16533, 0, -11.5278, 0, 13.5732, 0, 11.5278, 0, 7.16533, 376.511, 1.97839, 66.4745 )
 
-[node name="BigTree92" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree92" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 4.71458, 0, 12.7281, 0, 13.5732, 0, -12.7281, 0, 4.71458, 329.977, 1.97842, 217.525 )
 
-[node name="BigTree93" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree93" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.52726, 0, 9.66763, 0, 13.5732, 0, -9.66763, 0, 9.52726, 300.423, -1.00576, 214.009 )
 
-[node name="BigTree94" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree94" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.5224, 0, -1.17259, 0, 13.5732, 0, 1.17259, 0, 13.5224, 314.874, -1.00579, 131.535 )
 
-[node name="BigTree95" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree95" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.2539, 0, -8.89316, 0, 13.5732, 0, 8.89316, 0, -10.2539, 384.986, -1.00579, 141.854 )
 
-[node name="BigTree96" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree96" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.2539, 0, -8.89316, 0, 13.5732, 0, 8.89316, 0, -10.2539, 395.665, -1.00579, 119.991 )
 
-[node name="BigTree153" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree153" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 1.13716, -4.93622, 12.5926, 0.443953, 12.6438, 4.91622, -13.5182, 0, 1.22075, 657.361, 66.5051, 194.089 )
 
-[node name="BigTree154" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree154" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.8749, -4.93622, 9.00565, 3.46482, 12.6438, 3.51587, -9.66763, 0, 9.52726, 584.741, 34.9501, 214.009 )
 
-[node name="BigTree155" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree155" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.8285, -4.29223, -1.11242, 4.27618, 12.8767, -0.370807, 1.17259, 0, 13.5224, 598.202, 42.5821, 131.535 )
 
-[node name="BigTree156" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree156" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.55179, -4.93622, -8.28421, -3.72908, 12.6438, -3.23421, 8.89316, 0, -10.2539, 663.514, 65.7034, 141.854 )
 
-[node name="BigTree157" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree157" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -9.55179, -4.93622, -8.28421, -3.72908, 12.6438, -3.23421, 8.89316, 0, -10.2539, 673.461, 69.587, 119.991 )
 
-[node name="BigTree97" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree97" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.255, 0, 2.92158, 0, 13.5732, 0, -2.92158, 0, 13.255, 346.649, 1.04336, 196.463 )
 
-[node name="BigTree98" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree98" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.1281, 0, -11.5508, 0, 13.5732, 0, 11.5508, 0, -7.1281, 416.641, 1.04336, 185.361 )
 
-[node name="BigTree99" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree99" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.27524, 0, -10.7588, 0, 13.5732, 0, 10.7588, 0, -8.27524, 381.117, 1.04339, 210.408 )
 
-[node name="BigTree100" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree100" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.6463, 0, 4.92982, 0, 13.5732, 0, -4.92982, 0, 12.6463, 307.403, 1.04339, 220.88 )
 
-[node name="BigTree158" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree158" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 2.08625, 0.479468, -13.4033, 0.609292, 13.5471, 0.579449, 13.3981, -0.69073, 2.06072, 190.375, 61.1315, 462.717 )
 
-[node name="BigTree159" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree159" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -3.60421, 0.479468, -13.0771, 0.793549, 13.5471, 0.277989, 13.0618, -0.69073, -3.62532, 217.771, 59.0209, 451.597 )
 
-[node name="BigTree160" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree160" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -10.1433, 0.479468, -9.00635, 0.816967, 13.5471, -0.198899, 8.98203, -0.69073, -10.1527, 186.054, 63.6109, 489.239 )
 
-[node name="BigTree161" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree161" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.593314, 0.479468, 13.5517, -0.711444, 13.5471, -0.448156, -13.5415, -0.69073, 0.617306, 130.385, 73.2922, 532.893 )
 
-[node name="BigTree162" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree162" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 1.98013, 0.479468, 13.4194, -0.753658, 13.5471, -0.372824, -13.4068, -0.69073, 2.00295, 149.183, 70.6332, 493.792 )
 
-[node name="BigTree163" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree163" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.63388, 0.479468, -10.4623, 0.837865, 13.5471, -0.0705943, 10.4397, -0.69073, -8.64689, 208.406, 58.4203, 448.882 )
 
-[node name="BigTree164" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree164" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.62171, -0.0232528, -9.57361, 0.609292, 13.5471, 0.579449, 9.55423, -0.84051, 9.60427, 111.96, 61.935, 456.806 )
 
-[node name="BigTree165" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree165" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 4.83932, -0.0232528, -12.6812, 0.793549, 13.5471, 0.277989, 12.6563, -0.84051, 4.83138, 127.433, 58.8176, 431.611 )
 
-[node name="BigTree166" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree166" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -2.84551, -0.0232528, -13.2715, 0.816967, 13.5471, -0.198899, 13.2464, -0.84051, -2.83865, 124.2, 63.4013, 468.389 )
 
-[node name="BigTree167" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree167" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.54862, -0.0232528, 11.2805, -0.711444, 13.5471, -0.448156, -11.258, -0.84051, -7.53534, 105.24, 66.2496, 529.418 )
 
-[node name="BigTree168" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree168" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -6.35183, -0.0232528, 11.9952, -0.753658, 13.5471, -0.372824, -11.9716, -0.84051, -6.34092, 97.2026, 64.0405, 506.25 )
 
-[node name="BigTree169" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree169" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -0.765826, -0.0232528, -13.5516, 0.837865, 13.5471, -0.0705943, 13.5257, -0.84051, -0.762921, 118.282, 59.6547, 434.976 )
 
-[node name="BigTree101" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree101" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.1281, 0, -11.5508, 0, 13.5732, 0, 11.5508, 0, -7.1281, 420.299, 1.04336, 161.306 )
 
-[node name="BigTree102" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree102" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.63997, 0, 9.55521, 0, 13.5732, 0, -9.55521, 0, 9.63997, 294.199, 1.97839, 264.512 )
 
-[node name="BigTree103" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree103" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.151117, 0, -13.5723, 0, 13.5732, 0, 13.5723, 0, 0.151117, 347.415, 1.97839, 217.711 )
 
-[node name="BigTree104" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree104" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.24173, 0, -13.5163, 0, 13.5732, 0, 13.5163, 0, -1.24173, 330.784, 1.97842, 257.87 )
 
-[node name="BigTree105" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree105" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.05194, 0, 10.927, 0, 13.5732, 0, -10.927, 0, 8.05194, 274.086, 1.97842, 306.127 )
 
-[node name="BigTree106" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree106" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.151117, 0, -13.5723, 0, 13.5732, 0, 13.5723, 0, 0.151117, 337.647, 1.97839, 195.426 )
 
-[node name="BigTree107" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree107" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.63, 0, 8.44006, 0, 13.5732, 0, -8.44006, 0, 10.63, 219.547, 1.97842, 300.47 )
 
-[node name="BigTree108" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree108" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.1589, 0, 3.328, 0, 13.5732, 0, -3.328, 0, 13.1589, 196.098, -1.00576, 282.143 )
 
-[node name="BigTree109" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree109" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.9555, 0, -8.01295, 0, 13.5732, 0, 8.01295, 0, 10.9555, 251.211, -1.00579, 219.108 )
 
-[node name="BigTree110" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree110" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.3788, 0, -2.28902, 0, 13.5732, 0, 2.28902, 0, -13.3788, 305.817, -1.00579, 264.279 )
 
-[node name="BigTree111" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree111" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.3788, 0, -2.28902, 0, 13.5732, 0, 2.28902, 0, -13.3788, 326.282, -1.00579, 251.12 )
 
-[node name="BigTree112" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree112" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.255, 0, 2.92158, -0.371533, 13.463, 1.68562, -2.89786, -1.72608, 13.1474, 505.639, 51.4442, 453.596 )
 
-[node name="BigTree113" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree113" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.1281, 0, -11.5508, 1.4689, 13.463, -0.90647, 11.457, -1.72608, -7.07023, 575.632, 50.0323, 442.583 )
 
-[node name="BigTree114" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree114" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.27524, 0, -10.7588, 0, 13.5732, 0, 10.7588, 0, -8.27524, 540.108, 61.1407, 467.683 )
 
-[node name="BigTree115" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree115" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.6463, 0, 4.92982, 0, 13.5732, 0, -4.92982, 0, 12.6463, 466.394, 61.1407, 478.155 )
 
-[node name="BigTree116" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree116" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -7.1281, 0, -11.5508, 1.4689, 13.463, -0.90647, 11.457, -1.72608, -7.07023, 579.29, 46.9733, 418.724 )
 
-[node name="BigTree117" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree117" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.63997, 0, 9.55521, 0, 13.5732, 0, -9.55521, 0, 9.63997, 453.19, 62.0757, 521.787 )
 
-[node name="BigTree118" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree118" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.151117, 0, -13.5723, 0, 13.5732, 0, 13.5723, 0, 0.151117, 506.406, 62.0757, 474.986 )
 
-[node name="BigTree119" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree119" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.24173, 0, -13.5163, 0, 13.5732, 0, 13.5163, 0, -1.24173, 489.775, 62.0758, 515.145 )
 
-[node name="BigTree120" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree120" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 8.05194, 0, 10.927, 0, 13.5732, 0, -10.927, 0, 8.05194, 433.077, 62.0758, 563.403 )
 
-[node name="BigTree121" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree121" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.151117, 0, -13.5723, 0, 13.5732, 0, 13.5723, 0, 0.151117, 496.637, 62.0757, 452.702 )
 
-[node name="BigTree127" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree127" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.27524, 0, -10.7588, 0, 13.5732, 0, 10.7588, 0, -8.27524, 622.357, 97.4815, 745.032 )
 
-[node name="BigTree128" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree128" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.6463, 0, 4.92982, 0, 13.5732, 0, -4.92982, 0, 12.6463, 548.643, 97.4815, 755.503 )
 
-[node name="BigTree129" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree129" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 9.63997, 0, 9.55521, 0, 13.5732, 0, -9.55521, 0, 9.63997, 535.439, 98.4165, 799.136 )
 
-[node name="BigTree130" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree130" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.151117, 0, -13.5723, 0, 13.5732, 0, 13.5723, 0, 0.151117, 588.655, 98.4165, 752.334 )
 
-[node name="BigTree131" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree131" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.151117, 0, -13.5723, 0, 13.5732, 0, 13.5723, 0, 0.151117, 578.887, 98.4165, 730.05 )
 
-[node name="BigTree132" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree132" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.373, 0, 2.32243, 0, 13.5732, 0, -2.32243, 0, -13.373, 574.043, 97.4815, 789.411 )
 
-[node name="BigTree133" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree133" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.2455, 0, -8.90287, 0, 13.5732, 0, 8.90287, 0, 10.2455, 530.492, 97.4815, 729.023 )
 
-[node name="BigTree134" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree134" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.9422, 0, -4.09034, 0, 13.5732, 0, 4.09034, 0, 12.9422, 485.724, 98.4165, 737.626 )
 
-[node name="BigTree135" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree135" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.945, 0, -6.44571, 0, 13.5732, 0, 6.44571, 0, -11.945, 551.905, 98.4165, 762.971 )
 
-[node name="BigTree136" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree136" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.945, 0, -6.44571, 0, 13.5732, 0, 6.44571, 0, -11.945, 567.09, 98.4165, 743.96 )
 
-[node name="BigTree137" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree137" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.373, 0, 2.32243, 0, 13.5732, 0, -2.32243, 0, -13.373, 593.476, 97.4815, 747.915 )
 
-[node name="BigTree138" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree138" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.2455, 0, -8.90287, 0, 13.5732, 0, 8.90287, 0, 10.2455, 549.924, 97.4815, 687.527 )
 
-[node name="BigTree139" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree139" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 12.9422, 0, -4.09034, 0, 13.5732, 0, 4.09034, 0, 12.9422, 505.156, 98.4165, 696.13 )
 
-[node name="BigTree142" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree142" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.1328, -2.44835, 8.69282, 2.07148, 13.3466, 1.34451, -8.79025, 0.32294, 10.3373, 639.962, 115.424, 601.986 )
 
-[node name="BigTree143" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree143" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 5.83655, -2.44835, 12.0071, 1.36534, 13.3466, 2.0578, -12.1779, 0.32294, 5.98542, 619, 97.5335, 647.547 )
 
-[node name="BigTree140" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree140" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.945, 0, -6.44571, 0, 13.5732, 0, 6.44571, 0, -11.945, 571.337, 98.4165, 721.475 )
 
-[node name="BigTree141" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree141" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -11.945, 0, -6.44571, 0, 13.5732, 0, 6.44571, 0, -11.945, 586.522, 98.4165, 702.464 )
 
-[node name="BigTree122" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree122" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.63, 0, 8.44006, 0, 13.5732, 0, -8.44006, 0, 10.63, 378.538, 62.0758, 557.745 )
 
-[node name="BigTree123" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree123" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.1589, 0, 3.328, 0, 13.5732, 0, -3.328, 0, 13.1589, 355.089, 59.0916, 539.418 )
 
-[node name="BigTree124" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree124" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.9555, 0, -8.01295, 0, 13.5732, 0, 8.01295, 0, 10.9555, 410.202, 59.0915, 476.383 )
 
-[node name="BigTree125" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree125" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.3788, 0, -2.28902, 0, 13.5732, 0, 2.28902, 0, -13.3788, 464.808, 59.0915, 521.554 )
 
-[node name="BigTree144" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree144" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 6.20078, -2.25027, 11.8625, 1.04244, 13.3854, 1.99426, -12.029, 0, 6.2878, 701.194, 62.4732, 309.272 )
 
-[node name="BigTree145" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree145" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 0.967967, -2.25027, 13.3503, 0.162729, 13.3854, 2.24438, -13.5376, 0, 0.98155, 719.517, 66.5016, 350.829 )
 
-[node name="BigTree146" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree146" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 13.3359, -2.25027, 1.14893, 2.24196, 13.3854, 0.193151, -1.16505, 0, 13.5231, 658.631, 53.2397, 344.88 )
 
-[node name="BigTree147" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree147" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -8.45723, -2.25027, -10.3751, -1.42178, 13.3854, -1.7442, 10.5207, 0, -8.5759, 728.494, 64.9847, 343.016 )
 
-[node name="BigTree126" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree126" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.3788, 0, -2.28902, 0, 13.5732, 0, 2.28902, 0, -13.3788, 485.273, 59.0915, 508.395 )
 
-[node name="BigTree6" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree6" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.7002, 0, -8.3509, 0, 13.5732, 0, 8.3509, 0, 10.7002, -50.3643, 1.04336, -464.769 )
 
-[node name="BigTree7" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree7" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4437, 0, -1.87049, 0, 13.5732, 0, 1.87049, 0, -13.4437, 40.205, 1.04336, -417.915 )
 
-[node name="BigTree19" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree19" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.34573, 0, 13.5063, 4.01217, 12.9605, 0.39976, -12.8966, 4.03203, -1.28498, -185.739, 7.53187, -573.278 )
 
-[node name="BigTree20" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree20" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.34573, 0, 13.5063, 4.01217, 12.9605, 0.39976, -12.8966, 4.03203, -1.28498, -209.198, 9.44959, -579.443 )
 
-[node name="BigTree21" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree21" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.6344, 0, -8.43449, -2.50553, 12.9605, -3.15905, 8.05375, 4.03203, 10.1544, -212.009, 40.2138, -644.549 )
 
-[node name="BigTree22" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree22" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.7002, 0, -8.3509, -2.4807, 12.9605, -3.17858, 7.97393, 4.03203, 10.2172, -286.527, 36.3643, -645.22 )
 
-[node name="BigTree23" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree23" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4437, 0, -1.87049, -0.555644, 12.9605, 3.99356, 1.78605, 4.03203, -12.8368, -233.357, 15.9948, -600.482 )
 
-[node name="BigTree8" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree8" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( 10.7002, 0, -8.3509, 0, 13.5732, 0, 8.3509, 0, 10.7002, -18.7604, 1.04336, -477.283 )
 
-[node name="BigTree9" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree9" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -13.4437, 0, -1.87049, 0, 13.5732, 0, 1.87049, 0, -13.4437, 166.481, 1.04336, -430.43 )
 
-[node name="BigTree2" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
+[node name="BigTree2" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
 transform = Transform( -1.34573, 0, 13.5063, 0, 13.5732, 0, -13.5063, 0, -1.34573, 302.4, 1.04336, -415.342 )
 
-[node name="Rock" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 4.91885, -4.14674, -22.4212, -0.597325, 22.9057, -4.36738, 22.7936, 1.49513, 4.72404, 410.144, 10.878, -458.869 )
 
-[node name="Rock5" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock5" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -9.29827, 8.99258, -19.4108, -8.96891, 17.5764, 12.4391, 19.4217, 12.422, -3.54868, -19.0365, -18.3309, -424.353 )
 
-[node name="Rock2" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock2" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -16.8793, 2.80265, 15.8536, -0.433173, 22.8825, -4.50645, -16.0936, -3.5554, -16.5063, 323.793, -4.66287, -452.652 )
 
-[node name="Rock3" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock3" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 19.3779, -6.09669, 11.4642, 10.2791, 19.7861, -6.85237, -7.93344, 10.7445, 19.1238, 204.486, 69.4966, -662.749 )
 
-[node name="Rock4" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock4" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 12.564, -4.35071, 19.1656, 18.663, 9.77042, -10.0166, -6.15948, 20.7295, 8.7436, -126.525, 42.2179, -638.692 )
 
-[node name="Rock22" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock22" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 12.564, -4.35071, 19.1656, -4.81867, 21.371, 8.01025, -19.0533, -8.27376, 10.6122, -41.2504, -3.50396, -183.618 )
 
-[node name="Rock23" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock23" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 13.4461, -12.4247, 14.4545, 0.525637, 17.9241, 14.9182, -19.0533, -8.27376, 10.6122, -24.2209, -3.50396, -169.334 )
 
-[node name="Rock24" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock24" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -10.7404, -20.3056, -4.05326, -0.553057, -4.28312, 22.9227, -20.6988, 10.6508, 1.49068, -24.2209, -3.50396, -169.334 )
 
-[node name="Rock25" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock25" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -22.3474, 6.64845, 0.703061, -0.553057, -4.28312, 22.9227, 6.6626, 21.9444, 4.26108, -12.385, -3.50396, -173.65 )
 
-[node name="Rock26" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock26" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -7.15784, 13.3478, -17.7399, -5.97056, -19.1098, -11.9695, -21.3827, 0.867758, 9.28057, -6.85584, -0.68578, -95.6229 )
 
-[node name="Rock27" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock27" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 17.8749, -13.9077, 5.58241, 11.3452, 6.88117, -19.1843, 9.7915, 17.4163, 12.0375, -35.7184, -9.77123, -91.5031 )
 
-[node name="Rock28" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock28" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 3.90277, -13.0709, 18.9215, -5.97056, -19.1098, -11.9695, 22.2086, -2.84051, -6.54297, -35.8643, -0.68578, -93.6692 )
 
-[node name="Rock29" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock29" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -8.92176, 17.2278, 12.9502, 1.21473, 14.3956, -18.3137, -21.5181, -6.33027, -6.40326, -15.9628, -3.03197, -94.4503 )
 
-[node name="Rock30" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock30" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -19.6066, -1.7159, 12.5196, -5.97056, -19.1098, -11.9695, 11.1371, -13.2655, 15.6235, -26.0845, -0.68578, -107.329 )
 
-[node name="Rock31" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock31" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 6.1704, 19.7662, 10.739, 11.3452, 6.88117, -19.1843, -19.4246, 10.298, -7.79359, -16.4898, -9.77123, -79.7974 )
 
-[node name="Rock32" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock32" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 5.3516, 22.1488, -4.98909, 0.329562, 5.0495, 22.7705, 22.7014, -5.29465, 0.845591, -14.8807, -32.0269, -110.698 )
 
-[node name="Rock33" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock33" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 0.568325, -18.3714, 14.3621, -15.1149, 10.6496, 14.2206, -17.7572, -9.65294, -11.645, -27.6936, -6.27405, -100.442 )
 
-[node name="Rock34" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock34" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -20.3971, 3.81366, 10.6543, 11.202, 3.69232, 20.1242, 1.6037, 22.714, -5.06017, -23.7722, -40.2423, -98.4173 )
 
-[node name="Rock35" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock35" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 8.30778, 16.0354, 14.7631, -21.5236, 3.54408, 8.26273, 3.43717, -16.5652, 16.0587, -18.8021, -13.7238, -112.722 )
 
-[node name="Rock36" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock36" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -10.703, -18.4959, 9.35136, 11.202, 3.69232, 20.1242, -17.4373, 13.7248, 7.18825, -30.3418, -39.679, -89.2318 )
 
-[node name="Rock37" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock37" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 0.716307, 22.0451, -7.58972, -21.5236, 3.54408, 8.26273, 8.96216, 6.74955, 20.4506, -15.3412, -13.1605, -91.3099 )
 
-[node name="Rock6" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock6" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -1.05938, 22.1974, 7.08901, 15.1101, -4.74773, 17.1244, 17.7388, 5.36985, -14.1634, -204.479, 55.7583, 123.15 )
 
-[node name="Rock8" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock8" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 28.8255, 4.42883, 18.6273, 1.24885, 33.1598, -9.81661, -19.1058, 8.84936, 27.4619, -222.438, 70.0542, 145.902 )
 
-[node name="Rock9" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock9" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 28.8255, 4.42883, 18.6273, -18.6985, 13.7523, 25.6659, -4.11791, -31.4445, 13.8486, -222.438, 53.0778, 207.418 )
 
-[node name="Rock10" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock10" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -15.5006, 14.0732, 1.68101, -10.1031, -12.7183, 13.3162, 9.94029, 9.0187, 16.1556, -199.891, 69.8963, 176.677 )
 
-[node name="Rock11" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock11" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -20.7623, 18.8505, 2.25164, -13.5327, -17.0357, 17.8364, 13.3146, 12.0802, 21.6397, -244.557, 89.37, 176.677 )
 
-[node name="Rock12" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock12" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( -13.8001, 12.5294, 1.4966, -8.99478, -11.3231, 11.8553, 8.84981, 8.02932, 14.3833, -210.55, 56.7541, 211.586 )
 
-[node name="Rock7" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock7" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 2.93107, 8.5556, -0.723813, -6.08839, 1.53171, -6.54973, -6.05423, 2.60172, 6.23625, -174.71, 38.6879, 123.016 )
 
-[node name="Rock13" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock13" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 1.73406, 8.72124, -1.80921, 10.2867, -0.166882, 10.0656, 5.80256, -2.4991, -6.53087, -182.166, 38.6879, 190.022 )
 
-[node name="Rock14" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock14" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 1.73406, 8.72124, -1.80921, 11.7619, -1.55722, 4.57263, -1.06946, -1.96174, -11.0933, -182.166, 51.4256, 188.375 )
 
-[node name="Rock15" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock15" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 1.73406, 8.72124, -1.80921, 4.33154, -2.45234, -7.85409, -10.9874, 0.509256, -9.07098, -182.166, 67.263, 171.688 )
 
-[node name="Rock16" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock16" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 1.3594, 6.83693, -1.41832, 4.33154, -2.45234, -7.85409, -10.9874, 0.509256, -9.07098, -182.166, 68.9505, 151.658 )
 
-[node name="Rock17" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock17" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 1.3594, 6.83693, -1.41832, 4.33154, -2.45234, -7.85409, -10.9874, 0.509256, -9.07098, -182.166, 39.095, 151.658 )
 
-[node name="Rock18" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock18" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 1.86665, 9.38813, -1.94756, 5.94785, -3.36744, -10.7848, -15.0874, 0.699285, -12.4558, -182.166, 39.095, 169.775 )
 
-[node name="Rock19" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock19" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 11.161, 6.72122, 6.54896, 2.29119, -1.05543, -13.6885, -11.6908, 7.32646, -6.70735, -196.528, 49.5581, 152.578 )
 
-[node name="Rock20" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock20" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 11.161, 6.72122, 6.54896, 2.29119, -1.05543, -13.6885, -11.6908, 7.32646, -6.70735, -196.528, 49.5581, 169.773 )
 
-[node name="Rock21" parent="Roads/Moutains/Trees" instance=ExtResource( 6 )]
+[node name="Rock21" parent="Roads/Moutains/Trees" instance=ExtResource( 14 )]
 transform = Transform( 11.161, 6.72122, 6.54896, 2.29119, -1.05543, -13.6885, -11.6908, 7.32646, -6.70735, -196.553, 52.5088, 157.503 )
 
-[node name="smallTree" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, 315.063, 2.31151, -437.475 )
 
-[node name="smallTree3" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree3" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, 306.233, 2.31151, -447.224 )
 
-[node name="smallTree5" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree5" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, -38.209, 2.31151, -413.545 )
 
-[node name="smallTree6" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree6" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, -47.0383, 2.31151, -423.293 )
 
-[node name="smallTree7" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree7" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 9.38438, 0, -5.97506, 0, 11.1251, 0, 5.97506, 0, 9.38438, -61.3588, 2.31151, -411.937 )
 
-[node name="smallTree8" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree8" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 9.38438, 0, -5.97506, 0, 11.1251, 0, 5.97506, 0, 9.38438, -63.571, 2.31151, -424.902 )
 
-[node name="smallTree9" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree9" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 3.18613, 0, -10.6591, 0, 11.1251, 0, 10.6591, 0, 3.18613, -103.113, 2.31151, -427.452 )
 
-[node name="smallTree10" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree10" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 3.18613, 0, -10.6591, 0, 11.1251, 0, 10.6591, 0, 3.18613, -96.3013, 2.31151, -438.703 )
 
-[node name="smallTree11" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree11" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.09, 0, -0.882931, 0, 11.1251, 0, 0.882931, 0, 11.09, -95.6931, 2.31151, -404.047 )
 
-[node name="smallTree12" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree12" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.09, 0, -0.882931, 0, 11.1251, 0, 0.882931, 0, 11.09, -103.721, 2.31151, -414.465 )
 
-[node name="smallTree13" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree13" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 9.76188, 0, -5.33606, 0, 11.1251, 0, 5.33606, 0, 9.76188, -99.3007, -2.69045, -380.11 )
 
-[node name="smallTree14" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree14" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 9.76188, 0, -5.33606, 0, 11.1251, 0, 5.33606, 0, 9.76188, -102.372, -2.69045, -392.899 )
 
-[node name="smallTree15" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree15" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -135.091, -2.69045, -381.444 )
 
-[node name="smallTree16" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree16" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -126.691, -2.69045, -391.565 )
 
-[node name="smallTree17" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree17" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -151.77, -2.69045, -396.081 )
 
-[node name="smallTree18" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree18" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -143.37, -2.69045, -406.201 )
 
-[node name="smallTree19" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree19" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -142.071, -2.69045, -424.228 )
 
-[node name="smallTree20" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree20" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -133.671, -2.69045, -434.348 )
 
-[node name="smallTree21" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree21" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -133.888, -2.69045, -449.622 )
 
-[node name="smallTree22" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree22" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57504, 0, -11.013, 0, 11.1251, 0, 11.013, 0, 1.57504, -125.488, -2.69045, -459.742 )
 
-[node name="smallTree23" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree23" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -10.9876, 0, -1.74342, 0, 11.1251, 0, 1.74342, 0, -10.9876, -162.061, -2.69045, -458.804 )
 
-[node name="smallTree24" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree24" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -10.9876, 0, -1.74342, 0, 11.1251, 0, 1.74342, 0, -10.9876, -151.813, -2.69045, -450.56 )
 
-[node name="smallTree25" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree25" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -5.37912, 0, -9.73822, 0, 11.1251, 0, 9.73822, 0, -5.37912, -191.3, -2.87904, -452.764 )
 
-[node name="smallTree26" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree26" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -5.37912, 0, -9.73822, 0, 11.1251, 0, 9.73822, 0, -5.37912, -178.498, -2.87904, -455.78 )
 
-[node name="smallTree27" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree27" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1052, 0, -0.66444, 0, 11.1251, 0, 0.66444, 0, -11.1052, -222.15, -2.87904, -458.874 )
 
-[node name="smallTree28" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree28" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1052, 0, -0.66444, 0, 11.1251, 0, 0.66444, 0, -11.1052, -212.755, -2.87904, -449.67 )
 
-[node name="smallTree29" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree29" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1052, 0, -0.66444, 0, 11.1251, 0, 0.66444, 0, -11.1052, -188.769, -2.87904, -433.868 )
 
-[node name="smallTree30" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree30" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1052, 0, -0.66444, 0, 11.1251, 0, 0.66444, 0, -11.1052, -179.374, -2.87904, -424.665 )
 
-[node name="smallTree31" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree31" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1052, 0, -0.66444, 0, 11.1251, 0, 0.66444, 0, -11.1052, -188.769, -2.87904, -413.06 )
 
-[node name="smallTree51" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree51" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 8.9344, 0, 6.62898, 0, 11.1251, 0, -6.62898, 0, 8.9344, -57.8786, -3.38057, -154.453 )
 
-[node name="smallTree52" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree52" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 8.9344, 0, 6.62898, 0, 11.1251, 0, -6.62898, 0, 8.9344, -70.777, -3.38057, -157.021 )
 
-[node name="smallTree53" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree53" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 8.9344, 0, 6.62898, 0, 11.1251, 0, -6.62898, 0, 8.9344, -69.2571, -3.38057, -171.875 )
 
-[node name="smallTree54" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree54" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -75.0584, -3.38057, -137.521 )
 
-[node name="smallTree55" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree55" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -66.6593, -3.38057, -147.641 )
 
-[node name="smallTree56" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree56" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -54.3208, -3.38057, -139.233 )
 
-[node name="smallTree57" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree57" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -71.3322, -6.94876, -127.342 )
 
-[node name="smallTree58" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree58" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -62.9332, -6.94876, -137.463 )
 
-[node name="smallTree59" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree59" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -50.5947, -6.94876, -129.054 )
 
-[node name="smallTree60" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree60" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -43.4273, -6.94876, -131.975 )
 
-[node name="smallTree61" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree61" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -35.0282, -6.94876, -142.095 )
 
-[node name="smallTree62" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree62" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 1.57561, 0, -11.0129, 0, 11.1251, 0, 11.0129, 0, 1.57561, -22.6898, -6.94876, -133.687 )
 
-[node name="smallTree32" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree32" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1052, 0, -0.66444, 0, 11.1251, 0, 0.66444, 0, -11.1052, -179.374, -2.87904, -403.856 )
 
-[node name="smallTree33" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree33" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -5.89689, 0, 9.43369, 0, 11.1251, 0, -9.43369, 0, -5.89689, -202.732, -2.87904, -414.785 )
 
-[node name="smallTree34" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree34" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -5.89689, 0, 9.43369, 0, 11.1251, 0, -9.43369, 0, -5.89689, -206.318, -2.87904, -402.131 )
 
-[node name="smallTree35" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree35" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 7.27334, 0, 8.41822, 0, 11.1251, 0, -8.41822, 0, 7.27334, -168.222, -2.87904, -385.422 )
 
-[node name="smallTree36" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree36" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 7.27334, 0, 8.41822, 0, 11.1251, 0, -8.41822, 0, 7.27334, -181.371, -2.87904, -385.114 )
 
-[node name="smallTree37" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree37" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -6.55706, 0, -8.98737, 0, 11.1251, 0, 8.98737, 0, -6.55706, -169.025, -2.87904, -408.013 )
 
-[node name="smallTree38" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree38" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -6.55706, 0, -8.98737, 0, 11.1251, 0, 8.98737, 0, -6.55706, -155.946, -2.87904, -409.4 )
 
-[node name="smallTree39" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree39" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -6.55706, 0, -8.98737, 0, 11.1251, 0, 8.98737, 0, -6.55706, -224.432, -2.87904, -417.901 )
 
-[node name="smallTree40" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree40" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -6.55706, 0, -8.98737, 0, 11.1251, 0, 8.98737, 0, -6.55706, -211.353, -2.87904, -419.288 )
 
-[node name="smallTree41" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree41" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -2.18011, 0, -10.9094, 0, 11.1251, 0, 10.9094, 0, -2.18011, -248.33, -2.87904, -426.708 )
 
-[node name="smallTree42" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree42" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -2.18011, 0, -10.9094, 0, 11.1251, 0, 10.9094, 0, -2.18011, -237.04, -2.87904, -433.456 )
 
-[node name="smallTree43" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree43" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -2.18011, 0, -10.9094, 0, 11.1251, 0, 10.9094, 0, -2.18011, -252.909, -2.87904, -409.098 )
 
-[node name="smallTree44" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree44" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -2.18011, 0, -10.9094, 0, 11.1251, 0, 10.9094, 0, -2.18011, -229.03, -2.87904, -393.08 )
 
-[node name="smallTree45" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree45" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -6.79946, 0, -8.80541, 0, 11.1251, 0, 8.80541, 0, -6.79946, -281.354, -2.87904, -411.632 )
 
-[node name="smallTree46" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree46" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -6.79946, 0, -8.80541, 0, 11.1251, 0, 8.80541, 0, -6.79946, -306.223, -2.87904, -419.006 )
 
-[node name="smallTree47" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree47" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1057, 0, -0.656494, 0, 11.1251, 0, 0.656494, 0, -11.1057, -263.473, -2.87904, -445.89 )
 
-[node name="smallTree48" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree48" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1057, 0, -0.656494, 0, 11.1251, 0, 0.656494, 0, -11.1057, -254.084, -2.87904, -436.679 )
 
-[node name="smallTree49" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree49" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1057, 0, -0.656494, 0, 11.1251, 0, 0.656494, 0, -11.1057, -263.473, -2.87904, -445.89 )
 
-[node name="smallTree50" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree50" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( -11.1057, 0, -0.656494, 0, 11.1251, 0, 0.656494, 0, -11.1057, -254.084, -2.87904, -436.679 )
 
-[node name="smallTree2" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree2" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, 335.925, 1.66219, -431.218 )
 
-[node name="smallTree4" parent="Roads/Moutains/Trees" instance=ExtResource( 8 )]
+[node name="smallTree4" parent="Roads/Moutains/Trees" instance=ExtResource( 7 )]
 transform = Transform( 11.1251, 0, 0, 0, 11.1251, 0, 0, 0, 11.1251, 298.242, 1.66219, -460.413 )
 
-[node name="HighwayT" parent="Roads" instance=ExtResource( 10 )]
+[node name="HighwayT" parent="Roads" instance=ExtResource( 5 )]
 transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 218.216, 78.3, -309.275 )
 
-[node name="straightHighway" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( 1.99895, 0, 0.0676982, 0, 2, 0, -0.0648451, 0, 2.0869, -45.7694, 78.3, 50.315 )
 
-[node name="straightHighway2" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway2" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( 1.99882, 0, 0.0823457, 0, 2, 0, -0.0688222, 0, 2.39158, -44.8725, 78.3, 73.8948 )
 
-[node name="straightHighway3" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway3" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( -0.0168249, 0, -2.08793, 0, 2, 0, 1.99993, 0, -0.0175652, 419.517, 78.3, -71.5674 )
 
-[node name="straightHighway4" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway4" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( -0.0128455, 0, -3.14294, 0, 2, 0, 1.99996, 0, -0.0201867, 389.828, 78.328, -71.785 )
 
-[node name="straightHighway5" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway5" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( -1.99686, 0, -0.117028, 0, 2, 0, 0.112096, 0, -2.08472, 243.062, 78.3, -233.815 )
 
-[node name="straightHighway6" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway6" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( -1.99999, 0, 0.00762385, 0, 2, 0, -0.00523598, 0, -2.91199, 243.169, 78.3, -259.367 )
 
-[node name="straightHighway7" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway7" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( -0.0892263, 0, 2.08592, 0, 2, 0, -1.99801, 0, -0.093152, 288.215, 78.3, -285.229 )
 
-[node name="straightHighway8" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway8" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( -0.0932016, 0, 2.90883, 0, 2, 0, -1.99783, 0, -0.135701, 316.767, 78.3, -286.531 )
 
-[node name="straightHighway9" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway9" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( 0.011275, 0, 2.08797, 0, 2, 0, -1.99997, 0, 0.0117713, 336.137, 78.3, -286.34 )
 
-[node name="straightHighway10" parent="Roads" instance=ExtResource( 5 )]
+[node name="straightHighway10" parent="Roads" instance=ExtResource( 15 )]
 transform = Transform( 0.00628342, 0, 3.13698, 0, 2, 0, -1.99999, 0, 0.00985555, 367.196, 78.3, -286.309 )
 
-[node name="wideHighwayMountainpassEntranceglb" parent="Roads" instance=ExtResource( 11 )]
+[node name="wideHighwayMountainpassEntranceglb" parent="Roads" instance=ExtResource( 12 )]
 transform = Transform( 0.15034, 0, -1.99434, 0, 2, 0, 1.99434, 0, 0.15034, 366.763, 108.283, -261.092 )
 
 [node name="sun" type="DirectionalLight" parent="."]
@@ -1579,11 +1642,10 @@ shadow_contact = 5.679
 directional_shadow_split_1 = 0.025
 directional_shadow_max_distance = 1000.0
 
-[node name="car" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 243.076, 51.6163, -226.505 )
-mass = 58.11
+[node name="car" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 243.076, 48.0075, -226.505 )
+Controlled = false
 
-[connection signal="focus_entered" from="HBoxContainer/VBoxContainer/QuickRace" to="." method="_on_QuickRace_focus_entered"]
-[connection signal="focus_exited" from="HBoxContainer/VBoxContainer/QuickRace" to="." method="_on_QuickRace_focus_exited"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/QuickRace" to="." method="_on_QuickRace_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/GameModes" to="." method="_on_GameModes_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/bestLap" to="." method="_on_bestLap_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/driftScore" to="." method="_on_driftScore_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button" to="." method="_on_Button_pressed"]

@@ -23,8 +23,12 @@ var driftable = true
 var multiplyer = 1
 
 
+
 func _process(delta: float) -> void:
 	get_node('FPS').text = str(Engine.get_frames_per_second())
+
+
+
 
 
 func checkPointUpdate(difference):
@@ -45,13 +49,19 @@ func _on_checkPointTImeTimer_timeout() -> void:
 
 func drift_data(velocity):
 	
+	if Globals.gameMode != "driftScore":
+		return
+	
 	
 	var driftDirection = abs(velocity.x)
 	
+	# checks if the drift delay is going
 	if driftable == false:
 		drift_score = 0
 		return
 	
+	
+	# adds score if drifting
 	if driftDirection > 6 :
 		drifting = true
 		drift_score = round(drift_score + (driftDirection / 2))
@@ -92,6 +102,10 @@ func _on_Closecall_body_exited(body: Node) -> void:
 
 func carHitWall(body: Node) -> void:
 	
+	if Globals.gameMode != "driftScore":
+		return
+	
+	
 	multiplyer = 1
 	multiplyerLabel.text = ""
 	
@@ -102,6 +116,10 @@ func carHitWall(body: Node) -> void:
 	tween = create_tween()
 	
 	driftScoreLabelTween.text = str(drift_score)
+	
+	if drift_score == 0:
+		driftScoreLabelTween.text = ""
+	
 	driftScoreLable.text = ""
 	
 	driftScoreLabelTween.rect_position =  Vector2(-65.01, 28.133)
@@ -115,6 +133,14 @@ func carHitWall(body: Node) -> void:
 	
 	drift_score = 0
 	driftScoreLable.text = ""
+
+func resetDriftScore():
+	trueDriftScore = 0
+	multiplyer = 1
+	drift_score = 0
+	get_node('Score/driftScoreT').text = ""
+	driftScoreLable.text = ""
+	multiplyerLabel.text = ""
 
 
 func driftCancleTimer() -> void:

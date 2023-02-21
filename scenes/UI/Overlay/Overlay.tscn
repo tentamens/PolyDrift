@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/UI/Overlay/assets/Speedometer_needle.png" type="Texture" id=1]
 [ext_resource path="res://scenes/UI/Overlay/assets/Speedometer.png" type="Texture" id=2]
@@ -8,16 +8,11 @@
 [ext_resource path="res://scenes/UI/Overlay/Overlay.gd" type="Script" id=6]
 [ext_resource path="res://scenes/UI/MainScreen/Main.tres" type="Theme" id=7]
 [ext_resource path="res://scenes/UI/Overlay/CurrentTimeTime.gd" type="Script" id=8]
-
-[sub_resource type="DynamicFont" id=3]
-size = 32
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
+[ext_resource path="res://MISC/buttonStylebox.tres" type="StyleBox" id=9]
+[ext_resource path="res://scenes/UI/Overlay/EscMenu.gd" type="Script" id=10]
+[ext_resource path="res://MISC/buttonHover.tres" type="StyleBox" id=11]
+[ext_resource path="res://MISC/buttonPressed.tres" type="StyleBox" id=12]
+[ext_resource path="res://scenes/UI/Overlay/Overlay.tres" type="Theme" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 300
@@ -28,12 +23,32 @@ font_data = ExtResource( 5 )
 [sub_resource type="Theme" id=2]
 default_font = SubResource( 1 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 124
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.34902, 0.34902, 0.34902, 0.698039 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+anti_aliasing_size = 3.665
+
+[sub_resource type="StyleBoxFlat" id=8]
+
 [node name="UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 0.995407
 margin_bottom = 2.7558
 rect_scale = Vector2( 1, 0.995407 )
-theme = SubResource( 4 )
+theme = ExtResource( 13 )
 script = ExtResource( 6 )
 
 [node name="Time" type="HBoxContainer" parent="."]
@@ -42,8 +57,8 @@ margin_bottom = 40.0
 
 [node name="checkPointTimeLabelGreen" type="Label" parent="Time"]
 modulate = Color( 1, 1, 1, 0.745098 )
-margin_top = 13.0
-margin_bottom = 57.0
+margin_top = 26.0
+margin_bottom = 70.0
 theme = ExtResource( 7 )
 custom_colors/font_color = Color( 0.270588, 1, 0, 1 )
 text = "+"
@@ -51,47 +66,47 @@ text = "+"
 [node name="checkPointTimeLabelRed" type="Label" parent="Time"]
 modulate = Color( 1, 1, 1, 0.745098 )
 margin_left = 4.0
-margin_top = 13.0
+margin_top = 26.0
 margin_right = 4.0
-margin_bottom = 57.0
+margin_bottom = 70.0
 theme = ExtResource( 7 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Time"]
 margin_left = 8.0
-margin_right = 249.0
-margin_bottom = 71.0
+margin_right = 346.0
+margin_bottom = 97.0
 custom_constants/separation = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Time/VBoxContainer"]
-margin_right = 241.0
-margin_bottom = 34.0
+margin_right = 338.0
+margin_bottom = 47.0
 
 [node name="CurrentTimeLabel" type="Label" parent="Time/VBoxContainer/HBoxContainer"]
-margin_right = 237.0
-margin_bottom = 34.0
+margin_right = 334.0
+margin_bottom = 47.0
 text = "Current Time:"
 
 [node name="CurrentTimeTime" type="Label" parent="Time/VBoxContainer/HBoxContainer"]
-margin_left = 241.0
-margin_right = 241.0
-margin_bottom = 34.0
+margin_left = 338.0
+margin_right = 338.0
+margin_bottom = 47.0
 script = ExtResource( 8 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Time/VBoxContainer"]
-margin_top = 37.0
-margin_right = 241.0
-margin_bottom = 71.0
+margin_top = 50.0
+margin_right = 338.0
+margin_bottom = 97.0
 
 [node name="BestTimeLabel" type="Label" parent="Time/VBoxContainer/HBoxContainer2"]
-margin_right = 174.0
-margin_bottom = 34.0
+margin_right = 246.0
+margin_bottom = 47.0
 text = "Best Time:"
 
 [node name="BestTimeTime" type="Label" parent="Time/VBoxContainer/HBoxContainer2"]
-margin_left = 178.0
-margin_right = 178.0
-margin_bottom = 34.0
+margin_left = 250.0
+margin_right = 250.0
+margin_bottom = 47.0
 
 [node name="gages" type="Control" parent="."]
 anchor_left = 1.0
@@ -169,8 +184,6 @@ margin_top = 28.1331
 margin_right = 50.9896
 margin_bottom = 62.1331
 rect_rotation = 3.38795
-rect_scale = Vector2( 1.29866, 1.29866 )
-custom_colors/font_color = Color( 0, 0.0156863, 1, 1 )
 
 [node name="driftScoreTween" type="Label" parent="Score"]
 margin_left = -65.0104
@@ -178,8 +191,8 @@ margin_top = 28.1331
 margin_right = 50.9896
 margin_bottom = 62.1331
 rect_rotation = 3.38795
-rect_scale = Vector2( 1.29866, 1.29866 )
-custom_colors/font_color = Color( 0, 0.0156863, 1, 1 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
 
 [node name="multiplyer" type="Label" parent="Score"]
 margin_left = 60.0
@@ -204,7 +217,142 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="pauseMenu" type="Control" parent="."]
+anchor_left = 0.508984
+anchor_top = 0.479135
+anchor_right = 0.508984
+anchor_bottom = 0.479135
+margin_left = -1280.0
+margin_top = -698.163
+margin_right = 1280.0
+margin_bottom = 698.163
+theme = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="EscMenu" type="PopupPanel" parent="pauseMenu"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -648.0
+margin_top = -378.5
+margin_right = 648.0
+margin_bottom = 378.5
+custom_styles/panel = SubResource( 7 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/EscMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -648.0
+margin_top = -378.5
+margin_right = 648.0
+margin_bottom = 378.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/EscMenu/VBoxContainer"]
+margin_right = 1296.0
+margin_bottom = 478.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.74
+
+[node name="MarginContainer" type="MarginContainer" parent="pauseMenu/EscMenu/VBoxContainer/VBoxContainer"]
+margin_right = 1296.0
+margin_bottom = 14.0
+custom_constants/margin_top = 14
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pauseMenu/EscMenu/VBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1296.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="pauseMenu/EscMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 1296.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="pauseMenu/EscMenu/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+anchor_bottom = 1.0
+margin_right = 57.0
+margin_bottom = 1.0
+text = " volume"
+
+[node name="HSlider" type="HSlider" parent="pauseMenu/EscMenu/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -460.0
+custom_styles/grabber_area_highlight = SubResource( 8 )
+min_value = -30.0
+max_value = 0.0
+scrollable = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="pauseMenu/EscMenu/VBoxContainer/VBoxContainer"]
+margin_top = 182.0
+margin_right = 1296.0
+margin_bottom = 478.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.84
+
+[node name="menuQuitButtons" type="HBoxContainer" parent="pauseMenu/EscMenu/VBoxContainer"]
+margin_top = 482.0
+margin_right = 1296.0
+margin_bottom = 757.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons"]
+margin_right = 16.0
+margin_bottom = 275.0
+custom_constants/margin_right = 16
+
+[node name="Menu" type="Button" parent="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons"]
+margin_left = 20.0
+margin_right = 615.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/normal = ExtResource( 9 )
+text = "menu"
+
+[node name="MarginContainer2" type="MarginContainer" parent="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons"]
+margin_left = 619.0
+margin_right = 667.0
+margin_bottom = 275.0
+custom_constants/margin_right = 48
+
+[node name="Button2" type="Button" parent="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons"]
+margin_left = 671.0
+margin_right = 1267.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 9 )
+text = "quit"
+
+[node name="MarginContainer3" type="MarginContainer" parent="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons"]
+margin_left = 1271.0
+margin_right = 1296.0
+margin_bottom = 275.0
+custom_constants/margin_right = 25
+
 [connection signal="timeout" from="checkPointTImeTimer" to="." method="_on_checkPointTImeTimer_timeout"]
 [connection signal="timeout" from="driftCloseCallTimer" to="." method="closeCallTimer"]
 [connection signal="timeout" from="driftCancleTimer" to="." method="driftCancleTimer"]
 [connection signal="timeout" from="driftCoolDown" to="." method="driftCoolDown"]
+[connection signal="value_changed" from="pauseMenu/EscMenu/VBoxContainer/VBoxContainer/HBoxContainer/Panel/HSlider" to="pauseMenu/EscMenu" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons/Menu" to="pauseMenu/EscMenu" method="_on_Menu_pressed"]
+[connection signal="pressed" from="pauseMenu/EscMenu/VBoxContainer/menuQuitButtons/Button2" to="pauseMenu/EscMenu" method="_on_Button2_pressed"]

@@ -85,19 +85,21 @@ _data = [ Vector2( 0, 1 ), 0.0, -0.984877, 0, 0, Vector2( 1, 0 ), -1.00597, 0.0,
 extents = Vector3( 1, 1, 6.79769 )
 
 [node name="car" type="RigidBody"]
-mass = 120.0
 can_sleep = false
 linear_damp = 0.0
 angular_damp = 0.0
 script = ExtResource( 6 )
 SteerSensitivity = 2.0
 SteeringAssistance = 0.0
-Weight = 1400.0
-Powered_Wheels = [ "rr", "rl", "fr", "fl" ]
-SuperchargerEnabled = true
+MaxThrottle = 4.0
+Weight = 9000.0
+Powered_Wheels = [ "rr", "rl" ]
+CVTSettings = [ 0.75, 0.025, 0.9, 3000.0, 2.0, 0.2 ]
+TTCS = [ 1, 1.0, true ]
+ClutchGrip = 211.891
 
 [node name="DRAG_CENTRE" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.624618, 1.07385 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.655481, -1.07725 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.625, 0.725 )
@@ -108,39 +110,13 @@ shape = SubResource( 10 )
 [node name="engine_sound" parent="." instance=ExtResource( 3 )]
 overall_volume = 0.084
 
-[node name="fr" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.2, 3.8 )
-cast_to = Vector3( 0, -2.7, 0 )
-TyreSettings = {
-"Aspect Ratio": 60.0,
-"GripInfluence": 0.7,
-"Rim Size (in)": 14.0,
-"Width (mm)": 400.0
-}
-Caster = 2.0
-CompoundSettings = {
-"BuildupAffection": 1.0,
-"CoolRate": 7.5e-05,
-"DeformFactor": 1.0,
-"ForeFriction": 0.125,
-"ForeStiffness": 0.0,
-"GroundDragAffection": 1.0,
-"OptimumTemp": 50.0,
-"Stiffness": 1.0,
-"TractionFactor": 0.903
-}
-S_Stiffness = 55.0
-S_Damping = 4.0
-S_ReboundDamping = 4.0
-B_Torque = 30.0
-B_Bias = 0.8
-
 [node name="fl" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.2, 3.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49656, 0.304022, 3.68551 )
 cast_to = Vector3( 0, -2.7, 0 )
+SwayBarConnection = "fr"
 TyreSettings = {
 "Aspect Ratio": 60.0,
-"GripInfluence": 0.7,
+"GripInfluence": 1.0,
 "Rim Size (in)": 14.0,
 "Width (mm)": 185.0
 }
@@ -162,40 +138,22 @@ S_ReboundDamping = 4.0
 B_Torque = 30.0
 B_Bias = 0.8
 
-[node name="rr" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.2, -3.8 )
-cast_to = Vector3( 0, -2.7, 0 )
-Differed_Wheel = "rl"
-SwayBarConnection = "rl"
-TyreSettings = {
-"Aspect Ratio": 60.0,
-"GripInfluence": 0.6,
-"Rim Size (in)": 14.0,
-"Width (mm)": 185.0
-}
-CompoundSettings = {
-"BuildupAffection": 1.0,
-"CoolRate": 7.5e-05,
-"DeformFactor": 1.0,
-"ForeFriction": 0.125,
-"ForeStiffness": 0.0,
-"GroundDragAffection": 1.0,
-"OptimumTemp": 50.0,
-"Stiffness": 0.909,
-"TractionFactor": 1.0
-}
-B_Torque = 30.0
-B_Bias = 0.2
-HB_Bias = 1.0
+[node name="geometry" parent="fl" index="0"]
+Scale = 30.0
+
+[node name="69mustangwheels" parent="fl/animation/camber/wheel" index="0" instance=ExtResource( 7 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0, -2.38419e-07 )
 
 [node name="rl" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.2, -3.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49656, 0.304022, -4.3049 )
 cast_to = Vector3( 0, -2.7, 0 )
+Steer = false
 Differed_Wheel = "rr"
 SwayBarConnection = "rr"
+W_PowerBias = 10.0
 TyreSettings = {
 "Aspect Ratio": 60.0,
-"GripInfluence": 0.6,
+"GripInfluence": 0.7,
 "Rim Size (in)": 14.0,
 "Width (mm)": 185.0
 }
@@ -208,14 +166,77 @@ CompoundSettings = {
 "GroundDragAffection": 1.0,
 "OptimumTemp": 50.0,
 "Stiffness": 0.994,
-"TractionFactor": 0.901
+"TractionFactor": 1.2
 }
 B_Torque = 30.0
 B_Bias = 0.2
-HB_Bias = 1.0
+HB_Bias = 5.0
+ContactTTCS = true
 
 [node name="69mustangwheels" parent="rl/animation/camber/wheel" index="0" instance=ExtResource( 7 )]
-transform = Transform( -1.66808, 0, 1.66808, 0, 2.35903, 0, -1.66808, 0, -1.66808, 12.953, -0.426, 7.305 )
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 2.38419e-07, 0, 0 )
+
+[node name="rr" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09132, 0.304022, -4.27098 )
+cast_to = Vector3( 0, -2.7, 0 )
+Steer = false
+Differed_Wheel = "rl"
+SwayBarConnection = "rl"
+W_PowerBias = 10.0
+TyreSettings = {
+"Aspect Ratio": 60.0,
+"GripInfluence": 0.7,
+"Rim Size (in)": 14.0,
+"Width (mm)": 185.0
+}
+CompoundSettings = {
+"BuildupAffection": 1.0,
+"CoolRate": 7.5e-05,
+"DeformFactor": 1.0,
+"ForeFriction": 0.125,
+"ForeStiffness": 0.0,
+"GroundDragAffection": 1.0,
+"OptimumTemp": 50.0,
+"Stiffness": 0.909,
+"TractionFactor": 1.2
+}
+B_Torque = 30.0
+B_Bias = 0.2
+HB_Bias = 5.0
+ContactTTCS = true
+
+[node name="69mustangwheels" parent="rr/animation/camber/wheel" index="0" instance=ExtResource( 7 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 2.38419e-07, 0, 0 )
+
+[node name="fr" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09132, 0.304022, 3.68551 )
+cast_to = Vector3( 0, -2.7, 0 )
+SwayBarConnection = "fl"
+TyreSettings = {
+"Aspect Ratio": 60.0,
+"GripInfluence": 1.0,
+"Rim Size (in)": 14.0,
+"Width (mm)": 185.0
+}
+Caster = 2.0
+CompoundSettings = {
+"BuildupAffection": 1.0,
+"CoolRate": 7.5e-05,
+"DeformFactor": 1.0,
+"ForeFriction": 0.125,
+"ForeStiffness": 0.0,
+"GroundDragAffection": 1.0,
+"OptimumTemp": 50.0,
+"Stiffness": 1.0,
+"TractionFactor": 0.903
+}
+S_Damping = 4.0
+S_ReboundDamping = 4.0
+B_Torque = 30.0
+B_Bias = 0.8
+
+[node name="69mustangwheels" parent="fr/animation/camber/wheel" index="0" instance=ExtResource( 7 )]
+transform = Transform( -1.44451e-07, 1.15325e-07, -3, 2.9802, 0.344135, -1.30269e-07, 0.344135, -2.9802, -1.31134e-07, 0, 4.47035e-08, -2.38419e-07 )
 
 [node name="other_sounds" parent="." instance=ExtResource( 5 )]
 exhaust_particles = [ NodePath("../fire") ]
@@ -235,11 +256,11 @@ shape = SubResource( 14 )
 [node name="69mustang" parent="." instance=ExtResource( 9 )]
 transform = Transform( -2.12221, 0, 2.12222, 0, 3.00126, 0, -2.12222, 0, -2.12221, 20.7148, -2.20311, 13.2364 )
 
-[editable path="fr"]
-[editable path="fr/animation/camber/smoke_dirt"]
 [editable path="fl"]
 [editable path="fl/animation/camber/smoke_dirt"]
-[editable path="rr"]
-[editable path="rr/animation/camber/smoke_dirt"]
 [editable path="rl"]
 [editable path="rl/animation/camber/smoke_dirt"]
+[editable path="rr"]
+[editable path="rr/animation/camber/smoke_dirt"]
+[editable path="fr"]
+[editable path="fr/animation/camber/smoke_dirt"]

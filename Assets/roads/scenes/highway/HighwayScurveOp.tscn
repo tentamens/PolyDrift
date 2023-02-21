@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/roads/assets/HighwayScurveOp.glb" type="PackedScene" id=1]
+[ext_resource path="res://Assets/roads/scenes/highway/Lights.gd" type="Script" id=2]
 
 [node name="HighwayScurveOp" instance=ExtResource( 1 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
@@ -26,3 +27,55 @@ polygon = PoolVector2Array( -74.1972, 99.3426, -65.3466, 85.6937, -62.0685, 74.0
 [node name="CollisionPolygon5" type="CollisionPolygon" parent="StaticBody" index="4"]
 transform = Transform( 1, 0, 0, 0, -4.44742e-07, 10.1745, 0, -1, -4.37114e-08, 75.4546, 17.5397, 14.1569 )
 polygon = PoolVector2Array( -74.1972, 99.3426, -65.3466, 85.6937, -62.0685, 74.0727, -50.408, 61.7904, -38.4455, 37.9069, -35.5645, 25.1295, -34.1062, 14.3427, -36.6165, 14.278, -38.9905, 30.2964, -45.6377, 45.2213, -55.827, 58.4478, -69.8482, 75.5482, -75.4219, 88.5188, -76.8726, 99.2183 )
+
+[node name="Spatial" type="Spatial" parent="StaticBody" index="5"]
+script = ExtResource( 2 )
+
+[node name="SpotLight" type="SpotLight" parent="StaticBody/Spatial" index="0"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 16.7602, 23.4983, -10.1037 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71
+
+[node name="SpotLight2" type="SpotLight" parent="StaticBody/Spatial" index="1"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 34.6562, 23.5853, -15.1128 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71
+
+[node name="SpotLight3" type="SpotLight" parent="StaticBody/Spatial" index="2"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 8.09304, 23.4697, -26.4405 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71
+
+[node name="SpotLight4" type="SpotLight" parent="StaticBody/Spatial" index="3"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 22.6102, 23.3937, -38.1511 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71
+
+[node name="SpotLight5" type="SpotLight" parent="StaticBody/Spatial" index="4"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -8.96511, 23.4228, -46.9974 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71
+
+[node name="SpotLight6" type="SpotLight" parent="StaticBody/Spatial" index="5"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -1.50594, 23.4228, -74.5875 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71
+
+[node name="SpotLight7" type="SpotLight" parent="StaticBody/Spatial" index="6"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -19.6429, 23.4729, -69.682 )
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 47.689
+spot_angle = 66.71

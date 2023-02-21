@@ -1,5 +1,8 @@
 extends Label
 
+func _ready() -> void:
+	if Globals.gameMode != "bestLap":
+		self.set_physics_process(false)
 
 func _process(delta: float) -> void:
 	self.text = str(Globals.currentTime)
