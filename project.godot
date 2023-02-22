@@ -208,6 +208,7 @@ common/enable_pause_aware_picking=true
 threads/thread_model=2
 threads/thread_safe_bvh=true
 vram_compression/import_etc=true
+quality/shadow_atlas/size=7424
 quality/shadow_atlas/quadrant_3_subdiv=6
 quality/shadows/filter_mode=2
 quality/reflections/irradiance_max_size=64

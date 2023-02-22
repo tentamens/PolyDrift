@@ -256,6 +256,20 @@ shape = SubResource( 14 )
 [node name="69mustang" parent="." instance=ExtResource( 9 )]
 transform = Transform( -2.12221, 0, 2.12222, 0, 3.00126, 0, -2.12222, 0, -2.12221, 20.7148, -2.20311, 13.2364 )
 
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, -1.90636, -0.141899, 7.05683 )
+light_energy = 2.039
+shadow_bias = 4.478
+spot_range = 101.59
+spot_angle = 62.77
+
+[node name="SpotLight2" type="SpotLight" parent="."]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 2.36588, -0.141899, 7.05683 )
+light_energy = 2.039
+shadow_bias = 4.478
+spot_range = 101.59
+spot_angle = 62.77
+
 [editable path="fl"]
 [editable path="fl/animation/camber/smoke_dirt"]
 [editable path="rl"]

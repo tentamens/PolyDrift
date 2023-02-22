@@ -53,6 +53,7 @@ script = ExtResource( 3 )
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -9.47369, 23.4983, -5.07028 )
 light_energy = 0.0
 shadow_enabled = true
+shadow_bias = 5.176
 spot_range = 63.984
 spot_angle = 60.17
 
@@ -60,5 +61,6 @@ spot_angle = 60.17
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 9.33199, 23.4296, -5.07028 )
 light_energy = 0.0
 shadow_enabled = true
+shadow_bias = 5.176
 spot_range = 63.984
 spot_angle = 60.17

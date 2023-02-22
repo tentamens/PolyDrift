@@ -97,7 +97,7 @@ TurboEnabled = true
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="Car/car/cameraPivot"]
-transform = Transform( -0.997913, -0.0349378, -0.0543102, -0.0461995, 0.973861, 0.222399, 0.0451204, 0.224444, -0.973442, -0.751999, 12.2599, -22.5684 )
+transform = Transform( -0.997913, -0.0349378, -0.0543102, -0.0461995, 0.973861, 0.222399, 0.0451204, 0.224444, -0.973442, -0.751877, 11.1747, -19.8769 )
 far = 1201.9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Car/car/cameraPivot/Camera"]
@@ -1567,11 +1567,11 @@ include_in_bound = false
 allow_merging = false
 light_bake_mode = 2
 shadow_enabled = true
-shadow_bias = 5.088
-shadow_contact = 10.0
-directional_shadow_split_3 = 1.0
+shadow_bias = 10.0
+shadow_contact = 8.715
+directional_shadow_split_1 = 0.064
 directional_shadow_blend_splits = true
-directional_shadow_normal_bias = 0.0
+directional_shadow_normal_bias = 8.639
 directional_shadow_bias_split_scale = 0.0
 directional_shadow_depth_range = 1
 directional_shadow_max_distance = 792.1

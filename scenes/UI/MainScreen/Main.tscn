@@ -1574,7 +1574,7 @@ transform = Transform( 0.15034, 0, -1.99434, 0, 2, 0, 1.99434, 0, 0.15034, 366.7
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.531096, -0.0767023, 0.843833, -0.84566, -0.110136, 0.522235, 0.05288, -0.990952, -0.123357, 1124.85, 882.686, 94.704 )
 shadow_enabled = true
-shadow_bias = 10.0
+shadow_bias = 3.31
 shadow_contact = 5.679
 directional_shadow_split_1 = 0.025
 directional_shadow_max_distance = 1000.0
